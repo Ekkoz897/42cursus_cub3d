@@ -6,7 +6,7 @@ CFLAGS = -Wall -Wextra -Werror -g
 
 RM = rm -rf
 
-SRC = main.c 
+SRC = main.c parser.c
 
 SRC_GNL = libft/GNL/get_next_line.c libft/GNL/get_next_line_utils.c
 
