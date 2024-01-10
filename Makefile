@@ -6,7 +6,7 @@
 #    By: apereira <apereira@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/10 15:49:55 by apereira          #+#    #+#              #
-#    Updated: 2024/01/10 17:24:54 by apereira         ###   ########.fr        #
+#    Updated: 2024/01/10 18:01:13 by apereira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,9 @@ $(NAME): $(addprefix src/,$(OBJ))  $(OBJ_GNL)
 	@make -s -C libft/ft_printf
 	@make -s -C libft
 	@$(CC) $(addprefix src/,$(OBJ)) $(OBJ_GNL) $(MLX_PATH) -o $(NAME) $(PRINTF) libft/libft.a $(INCLUDES)
+
+test: 
+	./cub3D includes/maps/valid/normal.cub
 
 git: fclean
 	@git add .
