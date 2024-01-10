@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   scene.h                                            :+:      :+:    :+:   */
+/*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 15:13:29 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/09 16:27:41 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/10 17:22:12 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCENE_H
-# define SCENE_H
+#ifndef CUB3D_H
+# define CUB3D_H
 
 # include <stdio.h>
 # include <unistd.h>
@@ -19,9 +19,25 @@
 # include <fcntl.h>
 # include "../libft/libft.h"
 # include "../libft/GNL/get_next_line.h"
+# include "../includes/mlx_linux/mlx.h"
+# include <X11/keysym.h>
+# include <X11/X.h>
+# include "math.h"
+
+# define WDW_WIDTH 800
+# define WDW_HEIGHT 600
 
 typedef struct s_config
 {
+	void	*mlx;
+	void	*mlx_img;
+	void	*wdw;
+	double	p_x;
+	double	p_y;
+	double	plane_x;
+	double	plane_y;
+	double	distance;
+	double	height;
 	char	**scfile_text;
 
 	char	*so;
@@ -36,9 +52,12 @@ typedef struct s_config
 }	t_config;
 
 // parser.c
-int	parser(char *src);
+int		parser(char *src);
 
 // extract.c
-int	extract(char *src, t_config *config);
+int		extract(char *src, t_config *config);
+
+// utils.c
+void	vars_init(t_config *config);
 
 #endif

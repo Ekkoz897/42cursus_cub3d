@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   extract.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:03:17 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/09 17:15:20 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/10 16:20:25 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/scene.h"
+#include "../includes/cub3D.h"
 
 /* For memory allocation purposes, counts the number 
    of lines present in the scene file */

@@ -1,29 +1,46 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: apereira <apereira@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/01/10 15:49:55 by apereira          #+#    #+#              #
+#    Updated: 2024/01/10 17:24:54 by apereira         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+########## 		   NAMES 		##########
+
 NAME = cub3D
 
 CC = cc
-
 CFLAGS = -Wall -Wextra -Werror -g
+INCLUDES = -Lmlx_linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm
 
 RM = rm -rf
 
-SRC = main.c parser.c extract.c
+PRINTF = libft/ft_printf/libftprintf.a
+MLX_PATH = ./includes/mlx_linux/libmlx_Linux.a
 
-SRC_GNL = libft/GNL/get_next_line.c libft/GNL/get_next_line_utils.c
+SRC = main.c parser.c extract.c utils.c
 
 SRC_GNL = libft/GNL/get_next_line.c libft/GNL/get_next_line_utils.c
 
 OBJ = $(SRC:.c=.o)
-
 OBJ_GNL = $(SRC_GNL:.c=.o)
 
-OBJ_GNL = $(SRC_GNL:.c=.o)
+########## 		   TARGETS 		##########
 
 all: $(NAME)
 
-$(NAME): $(addprefix src/,$(OBJ))  $(OBJ_GNL) $(OBJ_GNL)
+%.o: %.c
+	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+
+$(NAME): $(addprefix src/,$(OBJ))  $(OBJ_GNL)
 	@make -s -C libft/ft_printf
 	@make -s -C libft
-	@$(CC) $(addprefix src/,$(OBJ)) $(OBJ_GNL) libft/ft_printf/libftprintf.a libft/libft.a $(INCLUDES) -o $(NAME)
+	@$(CC) $(addprefix src/,$(OBJ)) $(OBJ_GNL) $(MLX_PATH) -o $(NAME) $(PRINTF) libft/libft.a $(INCLUDES)
 
 git: fclean
 	@git add .
@@ -50,3 +67,5 @@ fclean: clean
 	@$(RM) $(NAME) $(LIB)
 
 re: fclean all
+
+.PHONY: all clean fclean re
