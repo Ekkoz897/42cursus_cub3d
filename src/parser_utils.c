@@ -1,20 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   parser_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/09 16:18:27 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/11 16:59:26 by ratavare         ###   ########.fr       */
+/*   Created: 2024/01/11 16:15:51 by ratavare          #+#    #+#             */
+/*   Updated: 2024/01/11 16:16:12 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/scene.h"
 
-int	main(int ac, char **av)
-{
-	(void)ac;
-	(void)av;
-	parser("scenes/test.cub");
-}
+int ft_contains_str()

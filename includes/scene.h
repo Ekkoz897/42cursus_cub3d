@@ -6,7 +6,7 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 15:13:29 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/09 16:27:41 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/11 15:59:47 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@
 
 typedef struct s_config
 {
-	char	**scfile_text;
-
 	char	*so;
 	char	*no;
 	char	*we;
@@ -39,6 +37,6 @@ typedef struct s_config
 int	parser(char *src);
 
 // extract.c
-int	extract(char *src, t_config *config);
+char	**extract(char *src);
 
 #endif

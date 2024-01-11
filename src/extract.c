@@ -6,7 +6,7 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:03:17 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/09 17:15:20 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/11 16:01:12 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,25 +35,26 @@ int	count_lines(char *src)
 	return (i);
 }
 
-// Extracts the scene file's text and normalizes the white spaces
+// Extracts the scene file's text
 
-int	extract(char *src, t_config *config)
+char	**extract(char *src)
 {
-	int	fd;
-	int	i;
-
+	int		fd;
+	int		i;
+	char	**scfile_text;
+	
 	fd = open(src, O_RDONLY);
 	if (fd == -1)
-		return (printf("error\n"), 1);
-	config->scfile_text = malloc(sizeof(char *) * (count_lines(src) + 1));
+		return (printf("error\n"), NULL);
+	scfile_text = malloc(sizeof(char *) * (count_lines(src) + 1));
+	if (!scfile_text)
+		return (NULL);
 	i = 0;
 	while (1)
 	{
-		config->scfile_text[i++] = get_next_line(fd);
-		if (config->scfile_text[i - 1] == NULL)
+		scfile_text[i++] = get_next_line(fd);
+		if (scfile_text[i - 1] == NULL)
 			break ;
 	}
-	for (int j = 0; j < 23; j++)
-		printf("%s", config->scfile_text[j]);
-	return (0);
+	return (scfile_text);
 }
