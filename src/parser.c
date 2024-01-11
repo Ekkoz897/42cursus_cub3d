@@ -6,11 +6,11 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 15:26:42 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/11 16:15:00 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/11 17:01:09 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/scene.h"
+#include "../includes/cub3D.h"
 
 int	check_textures(char **scfile_text, t_config	*config)
 {

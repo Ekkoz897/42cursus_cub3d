@@ -1,0 +1,18 @@
+NO ./inc/textures/wall_1.xpm
+SO ./inc/textures/wall_2.xpm         
+WE ./inc/textures/wall_3.xpm
+EA ./inc/textures/wall_4.xpm 
+
+F 255,255,255
+C 016,128,128   
+
+1111111111
+1000000001
+1000000001
+1001110001
+1001 10001
+1001010001
+1001110001
+1000000001
+1000000001
+1111111111

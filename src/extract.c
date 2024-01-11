@@ -6,11 +6,11 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:03:17 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/11 16:01:12 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/11 17:01:04 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/scene.h"
+#include "../includes/cub3D.h"
 
 /* For memory allocation purposes, counts the number 
    of lines present in the scene file */
