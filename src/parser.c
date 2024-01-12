@@ -6,13 +6,14 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 15:26:42 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/09 16:26:38 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/12 11:57:09 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/scene.h"
 
 int	parser(char *src)
+
 {
 	t_config	config;
 
