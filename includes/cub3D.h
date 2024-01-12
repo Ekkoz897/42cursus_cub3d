@@ -6,7 +6,7 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 12:28:33 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/12 12:31:34 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/12 13:44:09 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,9 @@ int		parser(char *src);
 
 // parser_utils.c
 int		ft_contains_str(char *scfile_line, char *contained);
+void	ft_add_textures(char *scfile_line, int *count, \
+t_config *config, int id);
+char	*ft_strndup(const char *s, int n);
 
 // extract.c
 char	**extract(char *src);
