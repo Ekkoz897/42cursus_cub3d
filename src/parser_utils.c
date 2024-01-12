@@ -1,42 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   parser_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/09 15:26:42 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/12 11:59:51 by ratavare         ###   ########.fr       */
+/*   Created: 2024/01/11 16:15:51 by ratavare          #+#    #+#             */
+/*   Updated: 2024/01/12 12:08:08 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
 
-int	check_textures(char **scfile_text, t_config	*config)
+int	ft_contains_str(char *scfile_line, char *contained)
 {
-	int	i;
-	int	j;
 
-	i = 0;
-	j = 0;
-	while (scfile_text[j])
-	{
-		
-	}
-}
-
-int	parse_textures(char **scfile_text, t_config	*config)
-{
-	if (check_textures)
-		return (1);
-}
-
-int	parser(char *src)
-
-{
-	t_config	config;
-	char		**scfile_text;
-
-	scfile_text = extract(src);
-	return (0);
 }
