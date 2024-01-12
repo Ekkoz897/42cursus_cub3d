@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/09 15:13:29 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/12 12:10:07 by ratavare         ###   ########.fr       */
+/*   Created: 2024/01/12 12:28:33 by ratavare          #+#    #+#             */
+/*   Updated: 2024/01/12 12:31:34 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,15 @@ typedef struct s_config
 
 // parser.c
 int		parser(char *src);
+
+// parser_utils.c
+int		ft_contains_str(char *scfile_line, char *contained);
+
+// extract.c
+char	**extract(char *src);
+
+// utils.c
+void	vars_init(t_config *config);
 
 // extract.c
 char	**extract(char *src);
