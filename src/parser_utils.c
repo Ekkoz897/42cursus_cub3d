@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   parser_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 12:28:08 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/12 12:28:09 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/12 09:23:17 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
 
-int	ft_contains_str(char *scfile_line, char *contained)
-{
+// int	ft_contains_str(char *scfile_line, char *contained)
+// {
 
-}
+// }

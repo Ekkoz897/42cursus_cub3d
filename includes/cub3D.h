@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 12:28:33 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/12 12:31:34 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/12 10:18:31 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,17 @@ typedef struct s_img
 	int		endian;
 }	t_img;
 
+typedef struct s_wall
+{
+	void	*img;
+	char	*addr;
+	int		bpp;
+	int		line_len;
+	int		endian;
+	int		width;
+	int		height;
+}	t_wall;
+
 typedef struct s_config
 {
 	void	*mlx;
@@ -53,6 +64,8 @@ typedef struct s_config
 	double	plane_y;
 	double	distance;
 	double	height;
+	char	**textures;
+	char	**map;
 
 	char	*so;
 	char	*no;
@@ -61,9 +74,11 @@ typedef struct s_config
 
 	int		f[3];
 	int		c[3];
+	int		map_width;
+	int		map_height;
 
-	char	**map;
 	t_img	img;
+	t_wall	wall[4];
 }	t_config;
 
 // parser.c
@@ -71,12 +86,6 @@ int		parser(char *src);
 
 // parser_utils.c
 int		ft_contains_str(char *scfile_line, char *contained);
-
-// extract.c
-char	**extract(char *src);
-
-// utils.c
-void	vars_init(t_config *config);
 
 // extract.c
 char	**extract(char *src);
