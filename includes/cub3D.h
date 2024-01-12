@@ -6,7 +6,7 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 12:28:33 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/12 13:44:09 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/12 19:48:07 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,25 +45,25 @@ typedef struct s_img
 
 typedef struct s_config
 {
-	void	*mlx;
-	void	*wdw;
-	double	p_x;
-	double	p_y;
-	double	plane_x;
-	double	plane_y;
-	double	distance;
-	double	height;
+	void			*mlx;
+	void			*wdw;
+	double			p_x;
+	double			p_y;
+	double			plane_x;
+	double			plane_y;
+	double			distance;
+	double			height;
 
-	char	*so;
-	char	*no;
-	char	*we;
-	char	*ea;
+	char			*so;
+	char			*no;
+	char			*we;
+	char			*ea;
 
-	int		f[3];
-	int		c[3];
+	unsigned int	f[3];
+	unsigned int	c[3];
 
-	char	**map;
-	t_img	img;
+	char			**map;
+	t_img			img;
 }	t_config;
 
 // parser.c
@@ -72,6 +72,8 @@ int		parser(char *src);
 // parser_utils.c
 int		ft_contains_str(char *scfile_line, char *contained);
 void	ft_add_textures(char *scfile_line, int *count, \
+t_config *config, int id);
+void	ft_add_colors(char *scfile_line, int *count, \
 t_config *config, int id);
 char	*ft_strndup(const char *s, int n);
 

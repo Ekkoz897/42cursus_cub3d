@@ -6,14 +6,14 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:03:17 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/12 12:31:51 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/12 20:16:02 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
 
-/* For memory allocation purposes, counts the number 
-   of lines present in the scene file */
+// For memory allocation purposes, counts the number
+// of lines present in the scene file.
 
 int	count_lines(char *src)
 {
@@ -35,7 +35,7 @@ int	count_lines(char *src)
 	return (i);
 }
 
-// Extracts the scene file's text
+// Extracts the scene file's text.
 
 char	**extract(char *src)
 {
@@ -45,7 +45,7 @@ char	**extract(char *src)
 
 	fd = open(src, O_RDONLY);
 	if (fd == -1)
-		return (printf("error\n"), NULL);
+		return (printf("error1\n"), NULL);
 	scfile_text = malloc(sizeof(char *) * (count_lines(src) + 1));
 	if (!scfile_text)
 		return (NULL);
