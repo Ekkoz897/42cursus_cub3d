@@ -6,7 +6,7 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:18:27 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/11 17:01:07 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/12 13:58:30 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 // data.img.line_len: size (in bytes) of a single line of the image.
 // data.img.endian:  the order of bytes, there are 2 types of system, big endian
 // and little endian. They store the color bytes differently
+
+//tive que meter esta msg lol
 
 int	main(int ac, char **av)
 {
