@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:18:27 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/12 10:31:16 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/14 08:51:08 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,16 @@ void	parser_sqn(t_config *config)
 	}
 }
 
+// Clears the image and redraws it based on players position, etc
+int	render(t_config *config)
+{
+	mlx_clear_window(config->mlx, config->wdw);
+	calculations(config);
+	mlx_put_image_to_window(config->mlx, config->wdw, config->img.mlx_img, \
+		0, 0);
+	return (1);
+}
+
 // gets the xpm file path to all textures and creates a drawable img
 // also collects the data addr to properly generate the textures
 void	init_tex_image(t_config *config)
@@ -57,49 +67,6 @@ void	init_tex_image(t_config *config)
 	}
 }
 
-int	ft_exit_cub(t_config *config)
-{
-	int	i;
-
-	if (!config)
-		exit (0);
-	if (config->img.mlx_img)
-		mlx_destroy_image(config->mlx, config->img.mlx_img);
-	if (config->wdw && config->mlx)
-		mlx_destroy_window(config->mlx, config->wdw);
-	if (config->mlx)
-		mlx_destroy_display(config->mlx);
-	i = 0;
-	while (i != config->map_height)
-	{
-		free (config->map[i]);
-		i++;
-	}
-	free(config->map);
-	free(config->mlx);
-	free(config->textures);
-	exit(0);
-}
-
-int	handle_keys(int key, t_config *config)
-{
-	if (key == ESC)
-		ft_exit_cub(config);
-	// else if (key == KEY_W)
-	// 	move_w(config);
-	// else if (key == KEY_S)
-	// 	move_s(config);
-	// else if (key == KEY_D)
-	// 	move_d(config);
-	// else if (key == KEY_A)
-	// 	move_a(config);
-	// else if (key == KEY_LEFT)
-	// 	rotate_left(config);
-	// else if (key == KEY_RIGHT)
-	// 	rotate_right(config);
-	return (0);
-}
-
 // config.img.bpp: bits per pixel
 // config.img.line_len: size (in bytes) of a single line of the image.
 // config.img.endian: the order of bytes, there's 2 types of system, big endian
@@ -114,6 +81,7 @@ int	main(int ac, char **av)
 	// apagar quando tivermos o tamanho real do mapa
 	config.map_height = 10;
 	config.map_width = 10;
+	//
 	vars_init(&config);
 	parser_sqn(&config);
 	config.mlx = mlx_init();
@@ -122,6 +90,7 @@ int	main(int ac, char **av)
 	config.img.addr = mlx_get_data_addr(config.img.mlx_img, &config.img.bpp,
 			&config.img.line_len, &config.img.endian);
 	init_tex_image(&config);
+	mlx_loop_hook(config.mlx, render, &config);
 	mlx_hook(config.wdw, 02, (1L << 0), handle_keys, &config);
 	mlx_hook(config.wdw, 17, 1L << 17, ft_exit_cub, &config);
 	mlx_loop(config.mlx);

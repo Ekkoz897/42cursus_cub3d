@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 12:28:33 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/12 10:18:31 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/14 09:06:51 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,16 @@ typedef struct s_config
 {
 	void	*mlx;
 	void	*wdw;
-	double	p_x;
-	double	p_y;
+	double	pos_x;
+	double	pos_y;
+	double	dir_x;
+	double	dir_y;
 	double	plane_x;
 	double	plane_y;
 	double	distance;
 	double	height;
-	char	**textures;
 	char	**map;
+	char	**textures;
 
 	char	*so;
 	char	*no;
@@ -76,6 +78,8 @@ typedef struct s_config
 	int		c[3];
 	int		map_width;
 	int		map_height;
+	int		hit;
+	int		*map_coord;
 
 	t_img	img;
 	t_wall	wall[4];
@@ -90,7 +94,11 @@ int		ft_contains_str(char *scfile_line, char *contained);
 // extract.c
 char	**extract(char *src);
 
+// events.c
+int		handle_keys(int key, t_config *config);
+
 // utils.c
 void	vars_init(t_config *config);
+int		ft_exit_cub(t_config *config);
 
 #endif
