@@ -6,16 +6,21 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 15:26:42 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/12 20:17:45 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/14 18:03:17 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
 
+int	parse_map(char **scfile_text, t_config *config)
+{
+	
+}
+
 // Cheks if exists and adds the defined RGB scheme to its
 // respective variable in the t_config structure.
 
-int	parse_colors(char **scfile_text, t_config	*config)
+int	parse_colors(char **scfile_text, t_config *config)
 {
 	int	i;
 	int	count;
