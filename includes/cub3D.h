@@ -6,7 +6,7 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 12:28:33 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/12 19:48:07 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/15 15:23:41 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,10 @@ typedef struct s_config
 // parser.c
 int		parser(char *src);
 
+// map.c
+char	**get_map(char **scfile_text);
+int		check_map(char **map);
+
 // parser_utils.c
 int		ft_contains_str(char *scfile_line, char *contained);
 void	ft_add_textures(char *scfile_line, int *count, \
@@ -82,6 +86,9 @@ char	**extract(char *src);
 
 // utils.c
 void	vars_init(t_config *config);
+
+// free.c
+void	free_ptp(char	**ptp);
 
 // extract.c
 char	**extract(char *src);

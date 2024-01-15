@@ -6,7 +6,7 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 15:02:12 by ratavare          #+#    #+#             */
-/*   Updated: 2023/06/20 23:18:36 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/14 23:50:02 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include "ft_printf/srcs/ft_printf.h"
 
 typedef struct s_list
 {

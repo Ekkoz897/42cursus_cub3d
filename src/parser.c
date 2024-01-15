@@ -6,7 +6,7 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 15:26:42 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/14 18:03:17 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/15 15:28:35 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,12 @@
 
 int	parse_map(char **scfile_text, t_config *config)
 {
-	
+	config->map = get_map(scfile_text);
+	if (!config->map)
+		return (1);
+	free_ptp (scfile_text);
+	check_map(config->map);
+	return (0);
 }
 
 // Cheks if exists and adds the defined RGB scheme to its
@@ -41,8 +46,8 @@ int	parse_colors(char **scfile_text, t_config *config)
 	while (i <= 2)
 		if (config->f[i] > 255 || config->c[i++] > 255)
 			return (printf("error3\n"), 1);
-	printf("config->f:%u,%u,%u\n", config->f[0], config->f[1], config->f[2]);
-	printf("config->c:%u,%u,%u\n", config->c[0], config->c[1], config->c[2]);
+	// printf("config->f:%u,%u,%u\n", config->f[0], config->f[1], config->f[2]);
+	// printf("config->c:%u,%u,%u\n", config->c[0], config->c[1], config->c[2]);
 	return (0);
 }
 
@@ -70,10 +75,10 @@ int	parse_textures(char **scfile_text, t_config	*config)
 	}
 	if (count != 4)
 		return (printf("error2\n"), 1);
-	printf("config->no:%s$\n", config->no);
-	printf("config->so:%s$\n", config->so);
-	printf("config->we:%s$\n", config->we);
-	printf("config->ea:%s$\n", config->ea);
+	// printf("config->no:%s$\n", config->no);
+	// printf("config->so:%s$\n", config->so);
+	// printf("config->we:%s$\n", config->we);
+	// printf("config->ea:%s$\n", config->ea);
 	return (0);
 }
 
@@ -91,6 +96,8 @@ int	parser(char *src)
 	if (parse_textures(scfile_text, &config))
 		return (1);
 	if (parse_colors(scfile_text, &config))
+		return (1);
+	if (parse_map(scfile_text, &config))
 		return (1);
 	return (0);
 }

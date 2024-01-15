@@ -6,7 +6,7 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:18:27 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/12 19:54:23 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/14 23:09:31 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ int	main(int ac, char **av)
 	// config.wdw = mlx_new_window(config.mlx, WDW_WIDTH, WDW_HEIGHT, "Cub3D");
 	// config.img.mlx_img = mlx_new_image(config.mlx, WDW_WIDTH, WDW_HEIGHT);
 	// config.img.addr = mlx_get_data_addr(config.img.mlx_img, &config.img.bpp,
-	// 		&config.img.line_len, &config.img.endian);
+	// &config.img.line_len, &config.img.endian);
 	// while (1)
 	// 	write(1, " ", 0);
 	return (0);
-}
+	}

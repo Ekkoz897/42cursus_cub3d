@@ -6,7 +6,7 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:03:17 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/14 17:58:53 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/15 13:47:26 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ int	count_lines(char *src)
 
 // Counts the amount of tabs in a given string.
 
-int		count_tabs(char *scfile_line)
+int	count_tabs(char *scfile_line)
 {
 	int	i;
-	int count;
+	int	count;
 
 	i = 0;
 	count = 0;
@@ -76,7 +76,8 @@ char	*replace_tabs(char *scfile_line)
 			else
 				new_line[y++] = scfile_line[i];
 		}
-		free(scfile_line);
+		new_line[y] = '\0';
+		free (scfile_line);
 		return (new_line);
 	}
 	return (scfile_line);
@@ -106,8 +107,5 @@ char	**extract(char *src)
 	i = -1;
 	while (scfile_text[++i])
 		scfile_text[i] = replace_tabs(scfile_text[i]);
-	// for (int j = 0; j < 23; j++)
-	// 	printf("%s", scfile_text[j]);
-	// printf("\n");
 	return (scfile_text);
 }
