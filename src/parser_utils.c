@@ -6,7 +6,7 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 12:28:08 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/14 16:11:38 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/16 16:23:08 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,25 @@
 
 // Checks if *contained existes at the begining of a given string,
 // excluding any inital spaces.
+
+int	ft_longest_line_size(char	**ptp)
+{
+	int	i;
+	int	size;
+	int	l_size;
+
+	i = 0;
+	size = 0;
+	l_size = 0;
+	while (ptp[i])
+	{
+		size = (int)ft_strlen(ptp[i]);
+		if (l_size < size)
+			l_size = size;
+		i++;
+	}
+	return (l_size);
+}
 
 int	ft_contains_str(char *scfile_line, char *contained)
 {

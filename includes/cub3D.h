@@ -6,7 +6,7 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 12:28:33 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/15 15:23:41 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/16 16:13:02 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ char	**get_map(char **scfile_text);
 int		check_map(char **map);
 
 // parser_utils.c
+int		ft_longest_line_size(char	**ptp);
 int		ft_contains_str(char *scfile_line, char *contained);
 void	ft_add_textures(char *scfile_line, int *count, \
 t_config *config, int id);

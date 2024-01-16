@@ -6,47 +6,61 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 23:18:28 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/15 16:25:35 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/16 17:36:10 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
-#include <string.h>
+
+void	border_line(char *map_line, char *new_line, int line_size, int flag)
+{
+	int		len;
+	int		i;
+
+	i = -1;
+	if (flag)
+	{
+		len = ft_strlen(map_line);
+		new_line[0] = '-';
+		ft_memcpy(new_line + 1, map_line, len);
+		while (new_line[++i])
+			if (new_line[i] == 32)
+				new_line[i] = '-';
+		while (len < line_size - 1)
+			new_line[len++] = '-';
+		new_line[len] = '\n';
+	}
+	else
+	{
+		len = 0;
+		while (len < line_size - 1)
+			new_line[len++] = '-';
+		new_line[len] = '\n';
+	}
+}
 
 char	**create_borders(char **map)
 {
 	int		i;
 	int		j;
-	int		last;
+	int		line_size;
 	char	**new_map;
 
 	i = 0;
 	while (map[i])
 		i++;
-	printf("%d\n", i);
-	new_map = ft_calloc(i + 2, sizeof(char *));
+	new_map = ft_calloc(i + 3, sizeof(char *));
 	j = -1;
+	line_size = ft_longest_line_size(map) + 2;
 	while (++j < i + 2)
-		new_map[j] = ft_calloc(60, sizeof(char));
+		new_map[j] = ft_calloc(line_size + 1, sizeof(char));
 	i = 0;
-	while (i <= (int)ft_strlen(map[0]))
-		new_map[0][i++] = 'a';
-	new_map[0][i] = '\n';
+	border_line(NULL, new_map[0], line_size, 0);
+	i = 0;
 	j = 1;
-	i = 0;
 	while (map[i])
-	{
-		new_map[j][0] = 'a';
-		ft_memcpy(new_map[j] + 1, map[i], ft_strlen(map[i]));
-		last = ft_strlen(new_map[j]);
-		new_map[j][last - 1] = 'a';
-		new_map[j][last] = '\n';
-		i++;
-		j++;
-	}
-	i = 0;
-	while (i <= (int)ft_strlen(new_map[j - 1]))
-		new_map[j][i++] = 'a';
+		border_line(map[i++], new_map[j++], line_size, 1);
+	border_line(NULL, new_map[j], line_size, 0);
 	return (new_map);
 }
 
@@ -55,7 +69,7 @@ int	check_map(char **map)
 	char	**tmp_map;
 
 	tmp_map = create_borders(map);
-	for(int j = 0; j < 16; j++)
+	for(int j = 0; j < 17; j++)
 		printf("%s", tmp_map[j]);
 	return (0);
 }
