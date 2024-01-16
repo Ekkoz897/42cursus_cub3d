@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 12:28:33 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/14 09:06:51 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/16 10:52:30 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@
 # define KEY_S 115
 # define KEY_A 97
 # define KEY_D 100
+# define INFINITY 1000000
 
 typedef struct s_img
 {
@@ -54,6 +55,8 @@ typedef struct s_wall
 	int		height;
 }	t_wall;
 
+// pos_x & pos_y = exact player coordinates
+// map->coord integer rounded player coordinates
 typedef struct s_config
 {
 	void	*mlx;
@@ -79,7 +82,10 @@ typedef struct s_config
 	int		map_width;
 	int		map_height;
 	int		hit;
+	int		step_x;
+	int		step_y;
 	int		*map_coord;
+	int		side;
 
 	t_img	img;
 	t_wall	wall[4];

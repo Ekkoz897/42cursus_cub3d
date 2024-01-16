@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 08:51:49 by apereira          #+#    #+#             */
-/*   Updated: 2024/01/14 09:30:20 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/16 10:56:37 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,26 @@ double	*get_ray(t_config *config, double x)
 	return (ray);
 }
 
+// Casts the rays and checks for wall collision
+// config->side -> 0 means vertical collision and 1 is horizontal collision
+void	calculations_helper(t_config *config, double *dist)
+{
+	if (dist[2] < dist[3])
+	{
+		dist[2] += dist[0];
+		config->map_coord[0] += config->step_x;
+		config->side = 0;
+	}
+	else
+	{
+		dist[3] += dist[1];
+		config->map_coord += config->step_y;
+		config->side = 1;
+	}
+	if (config->map[config->map_coord[0]][config->map_coord[1]] == '1')
+		config->hit = 1;
+}
+
 void	ft_calculations(t_config *config)
 {
 	double	x;
@@ -42,5 +62,7 @@ void	ft_calculations(t_config *config)
 		config->map_coord[1] = (int)config->pos_y;
 		ray = get_ray(config, x);
 		dist = get_distance(config, ray);
+		while (config->hit == 0)
+			calculations_helper(config, dist);
 	}
 }
