@@ -6,7 +6,7 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 15:02:12 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/14 23:50:02 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/16 21:03:46 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void		*ft_memchr(const void *s, int c, size_t n);
 int			ft_memcmp(const void *s1, const void *s2, size_t n);
 
 char		*ft_strdup(const char *s1);
+char		*ft_strndup(const char *s, int n);
 void		*ft_calloc(size_t count, size_t size);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 char		*ft_strjoin(const char *s1, const char *s2);

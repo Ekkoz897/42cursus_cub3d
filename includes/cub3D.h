@@ -6,7 +6,7 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 12:28:33 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/16 16:13:02 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/16 23:03:50 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ typedef struct s_config
 }	t_config;
 
 // parser.c
-int		parser(char *src);
+int		parser(char *src, t_config *config);
 
 // map.c
 char	**get_map(char **scfile_text);
@@ -80,7 +80,7 @@ void	ft_add_textures(char *scfile_line, int *count, \
 t_config *config, int id);
 void	ft_add_colors(char *scfile_line, int *count, \
 t_config *config, int id);
-char	*ft_strndup(const char *s, int n);
+void	get_player_pos(char **map, int *pos);
 
 // extract.c
 char	**extract(char *src);
@@ -90,6 +90,10 @@ void	vars_init(t_config *config);
 
 // free.c
 void	free_ptp(char	**ptp);
+void	free_textures(t_config *config);
+
+// error.c
+int		parsing_error(t_config *config, char *msg, int err_nbr);
 
 // extract.c
 char	**extract(char *src);

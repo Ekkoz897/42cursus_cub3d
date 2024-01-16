@@ -6,7 +6,7 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 16:22:15 by apereira          #+#    #+#             */
-/*   Updated: 2024/01/12 12:28:21 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/16 23:16:57 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 // Initializes vars
 void	vars_init(t_config *config)
 {
+	config->so = NULL;
+	config->no = NULL;
+	config->ea = NULL;
+	config->we = NULL;
 	config->mlx = 0;
 	config->wdw = 0;
 	config->p_x = 0;
@@ -23,5 +27,4 @@ void	vars_init(t_config *config)
 	config->plane_y = 0;
 	config->distance = 0;
 	config->height = 0;
-	// vars_init2(config); for later
 }

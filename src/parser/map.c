@@ -6,11 +6,40 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 23:18:28 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/16 17:36:10 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/16 23:14:23 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3D.h"
+#include "../../includes/cub3D.h"
+
+// Checks if the map area where the player spawns is
+// valid, meaning the whole area must be bordered by
+// '1' characters.
+
+int	check_path(int x, int y, char **map)
+{
+	if (map[x][y] == '0' || map[x][y] == 'W'
+	|| map[x][y] == 'E' || map[x][y] == 'S' || map[x][y] == 'N')
+	{
+		map[x][y] = '1';
+		if (check_path(x, y - 1, map))
+			return (1);
+		if (check_path(x + 1, y, map))
+			return (1);
+		if (check_path(x, y + 1, map))
+			return (1);
+		if (check_path(x - 1, y, map))
+			return (1);
+	}
+	else if (map[x][y] != '1')
+		return (1);
+	return (0);
+}
+
+// Based on its flag parameter, either fills a whole line with
+// the '-' character, or adds it to it's extremities.
+//  All lines are set to a sligtly bigger size than the
+// largest line in the file, in order to avoid empty spots.
 
 void	border_line(char *map_line, char *new_line, int line_size, int flag)
 {
@@ -39,6 +68,8 @@ void	border_line(char *map_line, char *new_line, int line_size, int flag)
 	}
 }
 
+// Fills the surrounding area of the map with the '-' character.
+
 char	**create_borders(char **map)
 {
 	int		i;
@@ -64,15 +95,7 @@ char	**create_borders(char **map)
 	return (new_map);
 }
 
-int	check_map(char **map)
-{
-	char	**tmp_map;
-
-	tmp_map = create_borders(map);
-	for(int j = 0; j < 17; j++)
-		printf("%s", tmp_map[j]);
-	return (0);
-}
+// Extracts the map from the (char *) array gotten from the scene file.
 
 char	**get_map(char **scfile_text)
 {
@@ -96,4 +119,21 @@ char	**get_map(char **scfile_text)
 	while (i < end)
 		map[j++] = ft_strdup(scfile_text[i++]);
 	return (map);
+}
+
+// Checks if the map is valid.
+
+int	check_map(char **map)
+{
+	char	**tmp_map;
+	int		player_pos[2];
+
+	tmp_map = create_borders(map);
+	get_player_pos(tmp_map, player_pos);
+	if (!player_pos[0] && !player_pos[1])
+		return (free_ptp(tmp_map), 1);
+	if (check_path(player_pos[0], player_pos[1], tmp_map))
+		return (free_ptp(tmp_map), 1);
+	free_ptp(tmp_map);
+	return (0);
 }

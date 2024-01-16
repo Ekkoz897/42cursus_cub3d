@@ -6,14 +6,45 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 12:28:08 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/16 16:23:08 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/16 22:15:38 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3D.h"
+#include "../../includes/cub3D.h"
 
-// Checks if *contained existes at the begining of a given string,
-// excluding any inital spaces.
+// Defines the player position in map and 
+// checks for player indentifier duplicates.
+
+void	get_player_pos(char **map, int *pos)
+{
+	int	x;
+	int	y;
+	int	count;
+
+	count = 0;
+	x = -1;
+	while (map[++x])
+	{
+		y = -1;
+		while (map[x][++y])
+		{
+			if (map[x][y] == 'W' || map[x][y] == 'E' 
+			|| map[x][y] == 'S' || map[x][y] == 'N')
+			{
+				count++;
+				pos[0] = x;
+				pos[1] = y;
+			}
+		}
+	}
+	if (count != 1)
+	{
+		pos[0] = 0;
+		pos[1] = 0;
+	}
+}
+
+// Returns the size of the longest line in a (char *) array.
 
 int	ft_longest_line_size(char	**ptp)
 {
@@ -33,6 +64,9 @@ int	ft_longest_line_size(char	**ptp)
 	}
 	return (l_size);
 }
+
+// Checks if *contained existes at the begining of a given string,
+// excluding any inital spaces.
 
 int	ft_contains_str(char *scfile_line, char *contained)
 {

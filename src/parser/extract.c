@@ -6,11 +6,11 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:03:17 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/15 13:47:26 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/16 22:31:03 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3D.h"
+#include "../../includes/cub3D.h"
 
 // For memory allocation purposes, counts the number
 // of lines present in the scene file.
@@ -93,7 +93,7 @@ char	**extract(char *src)
 
 	fd = open(src, O_RDONLY);
 	if (fd == -1)
-		return (printf("error1\n"), NULL);
+		return (NULL);
 	scfile_text = malloc(sizeof(char *) * (count_lines(src) + 1));
 	if (!scfile_text)
 		return (NULL);

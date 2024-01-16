@@ -1,39 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/15 00:01:42 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/16 22:50:24 by ratavare         ###   ########.fr       */
+/*   Created: 2024/01/16 22:24:56 by ratavare          #+#    #+#             */
+/*   Updated: 2024/01/16 23:16:37 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
 
-// Frees a given (char *) array.
-
-void	free_ptp(char **ptp)
+int	parsing_error(t_config *config, char *msg, int err_nbr)
 {
-	int	i;
-
-	i = 0;
-	while (ptp[i])
-		free(ptp[i++]);
-	free(ptp);
-}
-
-// Frees the texture path strings.
-
-void	free_textures(t_config *config)
-{
-	if (config->so)
-		free(config->so);
-	if (config->no)
-		free(config->no);
-	if (config->we)
-		free(config->we);
-	if (config->ea)
-		free(config->ea);
+	if (err_nbr == 2 || err_nbr == 3)
+		free_textures(config);
+	if (err_nbr == 4)
+	{
+		free_textures(config);
+		free_ptp(config->map);
+	}
+	ft_putstr_fd("Error\n", 2);
+	ft_putstr_fd(msg, 2);
+	return (1);
 }
