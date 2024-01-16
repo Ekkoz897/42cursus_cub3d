@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 08:51:49 by apereira          #+#    #+#             */
-/*   Updated: 2024/01/16 10:56:37 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/16 12:41:57 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,12 @@ void	ft_calculations(t_config *config)
 		config->map_coord[0] = (int)config->pos_x;
 		config->map_coord[1] = (int)config->pos_y;
 		ray = get_ray(config, x);
-		dist = get_distance(config, ray);
+		dist = get_dist(config, ray);
 		while (config->hit == 0)
 			calculations_helper(config, dist);
+		drawing(x, config, dist, ray);
+		free(ray);
+		free(dist);
+		x++;
 	}
 }

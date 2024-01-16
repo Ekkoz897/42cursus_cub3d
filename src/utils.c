@@ -6,11 +6,24 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 16:22:15 by apereira          #+#    #+#             */
-/*   Updated: 2024/01/14 08:58:09 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/16 12:41:21 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
+void	vars_init_helper(t_config *config)
+{
+	int	i;
+
+	i = 0;
+	while (i != 4)
+		config->textures[i++] = 0;
+	i = 0;
+	while (i != 2)
+	{
+		config->map_coord[i] = 0;
+	}	
+}
 
 // Initializes vars
 void	vars_init(t_config *config)
@@ -23,6 +36,14 @@ void	vars_init(t_config *config)
 	config->plane_y = 0;
 	config->distance = 0;
 	config->height = 0;
+	config->start = 0;
+	config->end = 0;
+	config->hit = 0;
+	config->step_x = 0;
+	config->step_y = 0;
+	config->side = -1;
+	config->map = NULL;
+	config->map_coord = malloc(sizeof(int) * 2);
 	config->textures = malloc (sizeof(char *) * 4);
 	config->textures[0] = ft_strdup("../includes/textures/wall_1.xpm");
 	config->textures[1] = ft_strdup("../includes/textures/wall_2.xpm");

@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 12:28:33 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/16 10:52:30 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/16 12:36:06 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 # define KEY_S 115
 # define KEY_A 97
 # define KEY_D 100
-# define INFINITY 1000000
+# define INFINITE 1000000
 
 typedef struct s_img
 {
@@ -86,25 +86,39 @@ typedef struct s_config
 	int		step_y;
 	int		*map_coord;
 	int		side;
+	int		start;
+	int		end;
 
 	t_img	img;
 	t_wall	wall[4];
 }	t_config;
 
-// parser.c
+// Parser.c
 int		parser(char *src);
 
-// parser_utils.c
+// Parser_utils.c
 int		ft_contains_str(char *scfile_line, char *contained);
 
-// extract.c
+// Extract.c
 char	**extract(char *src);
 
-// events.c
+// Events.c
 int		handle_keys(int key, t_config *config);
 
-// utils.c
+// Utils.c
 void	vars_init(t_config *config);
 int		ft_exit_cub(t_config *config);
+
+// Distance.c
+double	*get_dist(t_config *config, double *ray);
+double	*dist_1(double *ray);
+double	*dist_2(t_config *config, double *ray, double *dist);
+
+// Math.c
+void	ft_calculations(t_config *config);
+
+// Drawing.c
+void	get_picture_vars(t_config *config, int side, double *dist);
+void	drawing(int x, t_config *config, double *dist, double *ray);
 
 #endif

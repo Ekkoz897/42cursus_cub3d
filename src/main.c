@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:18:27 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/14 08:51:08 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/16 12:34:00 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	parser_sqn(t_config *config)
 int	render(t_config *config)
 {
 	mlx_clear_window(config->mlx, config->wdw);
-	calculations(config);
+	ft_calculations(config);
 	mlx_put_image_to_window(config->mlx, config->wdw, config->img.mlx_img, \
 		0, 0);
 	return (1);

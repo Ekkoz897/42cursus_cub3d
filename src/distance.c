@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 09:29:48 by apereira          #+#    #+#             */
-/*   Updated: 2024/01/16 09:31:39 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/16 12:36:39 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ double	*dist_1(double *ray)
 	if (ray[0] != 0)
 		dist[0] = fabs(1 / ray[0]);
 	else
-		dist = -1;
+		dist[0] = -1;
 	if (ray[1] != 0)
 		dist[1] = fabs(1 / ray[1]);
 	else
