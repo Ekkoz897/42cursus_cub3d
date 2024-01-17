@@ -6,11 +6,12 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 16:22:15 by apereira          #+#    #+#             */
-/*   Updated: 2024/01/16 12:41:21 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/17 12:37:59 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
+
 void	vars_init_helper(t_config *config)
 {
 	int	i;
@@ -22,7 +23,9 @@ void	vars_init_helper(t_config *config)
 	while (i != 2)
 	{
 		config->map_coord[i] = 0;
-	}	
+		config->colors[i] = -1;
+		i++;
+	}
 }
 
 // Initializes vars
@@ -32,18 +35,21 @@ void	vars_init(t_config *config)
 	config->wdw = 0;
 	config->pos_x = 0;
 	config->pos_y = 0;
+	config->dir_x = 0;
+	config->dir_y = 0;
 	config->plane_x = 0;
 	config->plane_y = 0;
 	config->distance = 0;
 	config->height = 0;
-	config->start = 0;
-	config->end = 0;
+	config->map = NULL;
 	config->hit = 0;
+	config->colors = malloc(sizeof(int) * 2);
 	config->step_x = 0;
 	config->step_y = 0;
-	config->side = -1;
-	config->map = NULL;
 	config->map_coord = malloc(sizeof(int) * 2);
+	config->side = -1;
+	config->start = 0;
+	config->end = 0;
 	config->textures = malloc (sizeof(char *) * 4);
 	config->textures[0] = ft_strdup("../includes/textures/wall_1.xpm");
 	config->textures[1] = ft_strdup("../includes/textures/wall_2.xpm");
@@ -51,7 +57,7 @@ void	vars_init(t_config *config)
 	config->textures[3] = ft_strdup("../includes/textures/wall_4.xpm");
 }
 
-int	ft_exit_cub(t_config *config)
+int	ft_free_exit_cub(t_config *config)
 {
 	int	i;
 

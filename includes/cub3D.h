@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 12:28:33 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/16 12:36:06 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/17 12:47:45 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ typedef struct s_config
 	int		map_width;
 	int		map_height;
 	int		hit;
+	int		*colors;
 	int		step_x;
 	int		step_y;
 	int		*map_coord;
@@ -94,31 +95,40 @@ typedef struct s_config
 }	t_config;
 
 // Parser.c
-int		parser(char *src);
+int				parser(char *src);
 
 // Parser_utils.c
-int		ft_contains_str(char *scfile_line, char *contained);
+int				ft_contains_str(char *scfile_line, char *contained);
 
 // Extract.c
-char	**extract(char *src);
+int				count_lines(char *src);
+char			**extract(char *src);
 
 // Events.c
-int		handle_keys(int key, t_config *config);
+int				keyboard_handle(int key, t_config *config);
 
 // Utils.c
-void	vars_init(t_config *config);
-int		ft_exit_cub(t_config *config);
+void			vars_init_helper(t_config *config);
+void			vars_init(t_config *config);
+int				ft_free_exit_cub(t_config *config);
 
 // Distance.c
-double	*get_dist(t_config *config, double *ray);
-double	*dist_1(double *ray);
-double	*dist_2(t_config *config, double *ray, double *dist);
+double			*calculate_dist(t_config *config, double *ray);
+double			*dist_1(double *ray);
+double			*dist_2(t_config *config, double *ray, double *dist);
 
 // Math.c
-void	ft_calculations(t_config *config);
+double			*calculate_ray(t_config *config, double x);
+void			ft_calculations_helper(t_config *config, double *dist);
+void			ft_calculations(t_config *config);
 
 // Drawing.c
-void	get_picture_vars(t_config *config, int side, double *dist);
-void	drawing(int x, t_config *config, double *dist, double *ray);
+void			get_image_vars(t_config *config, int side, double *dist);
+unsigned int	get_pixel_texture(t_config *config, int y, double *ray);
+void			draw_img(int x, t_config *config, double *dist, double *ray);
+
+// Drawing_aux.c
+void			ft_mlx_pixel_put(t_config *config, int x, int y, int color);
+int				get_i(t_config *config, double *ray);
 
 #endif

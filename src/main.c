@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:18:27 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/16 12:34:00 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/17 12:43:57 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	parser_sqn(t_config *config)
 }
 
 // Clears the image and redraws it based on players position, etc
-int	render(t_config *config)
+int	ft_render(t_config *config)
 {
 	mlx_clear_window(config->mlx, config->wdw);
 	ft_calculations(config);
@@ -48,7 +48,7 @@ int	render(t_config *config)
 
 // gets the xpm file path to all textures and creates a drawable img
 // also collects the data addr to properly generate the textures
-void	init_tex_image(t_config *config)
+void	init_texture_imgs(t_config *config)
 {
 	int	i;
 
@@ -89,9 +89,9 @@ int	main(int ac, char **av)
 	config.img.mlx_img = mlx_new_image(config.mlx, WDW_WIDTH, WDW_HEIGHT);
 	config.img.addr = mlx_get_data_addr(config.img.mlx_img, &config.img.bpp,
 			&config.img.line_len, &config.img.endian);
-	init_tex_image(&config);
-	mlx_loop_hook(config.mlx, render, &config);
-	mlx_hook(config.wdw, 02, (1L << 0), handle_keys, &config);
-	mlx_hook(config.wdw, 17, 1L << 17, ft_exit_cub, &config);
+	init_texture_imgs(&config);
+	mlx_loop_hook(config.mlx, ft_render, &config);
+	mlx_hook(config.wdw, 02, (1L << 0), keyboard_handle, &config);
+	mlx_hook(config.wdw, 17, 1L << 17, ft_free_exit_cub, &config);
 	mlx_loop(config.mlx);
 }

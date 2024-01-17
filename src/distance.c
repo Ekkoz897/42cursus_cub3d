@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 09:29:48 by apereira          #+#    #+#             */
-/*   Updated: 2024/01/16 12:36:39 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/17 12:45:37 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ double	*dist_2(t_config *config, double *ray, double *dist)
 // dist[3] = distance from player position to y axys gridline
 // If one of the vector coordinates is 0, it will never meet 
 // the next gridline, which makes the distance infinite
-double	*get_dist(t_config *config, double *ray)
+double	*calculate_dist(t_config *config, double *ray)
 {
 	double	*dist;
 

@@ -6,7 +6,7 @@
 #    By: apereira <apereira@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/10 15:49:55 by apereira          #+#    #+#              #
-#    Updated: 2024/01/16 12:34:22 by apereira         ###   ########.fr        #
+#    Updated: 2024/01/17 11:30:54 by apereira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ RM = rm -rf
 PRINTF = libft/ft_printf/libftprintf.a
 MLX_PATH = ./includes/mlx_linux/libmlx_Linux.a
 
-SRC = main.c parser.c parser_utils.c extract.c utils.c events.c math.c distance.c drawing.c
+SRC = main.c parser.c parser_utils.c extract.c utils.c events.c math.c distance.c drawing.c drawing_aux.c
 
 SRC_GNL = libft/GNL/get_next_line.c libft/GNL/get_next_line_utils.c
 
