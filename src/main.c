@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:18:27 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/17 14:18:42 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/17 15:07:26 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,20 +78,16 @@ int	main(int ac, char **av)
 
 	(void)ac;
 	(void)av;
-	// apagar quando tivermos o tamanho real do mapa
-	config.map_height = 10;
-	config.map_width = 10;
-	//
 	vars_init(&config);
-	parser_sqn(&config);
-	config.mlx = mlx_init();
-	config.wdw = mlx_new_window(config.mlx, WDW_WIDTH, WDW_HEIGHT, "Cub3D");
-	config.img.mlx_img = mlx_new_image(config.mlx, WDW_WIDTH, WDW_HEIGHT);
-	config.img.addr = mlx_get_data_addr(config.img.mlx_img, &config.img.bpp,
-			&config.img.line_len, &config.img.endian);
-	init_texture_imgs(&config);
-	mlx_loop_hook(config.mlx, ft_render, &config);
-	mlx_hook(config.wdw, 02, (1L << 0), keyboard_handle, &config);
-	mlx_hook(config.wdw, 17, 1L << 17, ft_free_exit_cub, &config);
-	mlx_loop(config.mlx);
+	parser("../42cursus_Cub3D/includes/maps/valid/normal.cub", &config);
+	// config.mlx = mlx_init();
+	// config.wdw = mlx_new_window(config.mlx, WDW_WIDTH, WDW_HEIGHT, "Cub3D");
+	// config.img.mlx_img = mlx_new_image(config.mlx, WDW_WIDTH, WDW_HEIGHT);
+	// config.img.addr = mlx_get_data_addr(config.img.mlx_img, &config.img.bpp,
+	// 		&config.img.line_len, &config.img.endian);
+	// init_texture_imgs(&config);
+	// mlx_loop_hook(config.mlx, ft_render, &config);
+	// mlx_hook(config.wdw, 02, (1L << 0), keyboard_handle, &config);
+	// mlx_hook(config.wdw, 17, 1L << 17, ft_free_exit_cub, &config);
+	// mlx_loop(config.mlx);
 }
