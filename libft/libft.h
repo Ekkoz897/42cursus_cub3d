@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 15:02:12 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/12 09:27:20 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/17 14:17:22 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void		*ft_memchr(const void *s, int c, size_t n);
 int			ft_memcmp(const void *s1, const void *s2, size_t n);
 
 char		*ft_strdup(const char *s1);
+char		*ft_strndup(const char *s, int n);
 void		*ft_calloc(size_t count, size_t size);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 char		*ft_strjoin(const char *s1, const char *s2);

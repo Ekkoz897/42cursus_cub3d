@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 12:28:33 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/17 12:47:45 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/17 14:16:12 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,11 +94,17 @@ typedef struct s_config
 	t_wall	wall[4];
 }	t_config;
 
-// Parser.c
-int				parser(char *src);
+// parser.c
+int				parser(char *src, t_config *config);
 
-// Parser_utils.c
+// parser_utils.c
+int				ft_longest_line_size(char	**ptp);
 int				ft_contains_str(char *scfile_line, char *contained);
+void			ft_add_textures(char *scfile_line, int *count, \
+					t_config *config, int id);
+void			ft_add_colors(char *scfile_line, int *count, \
+					t_config *config, int id);
+void			get_player_pos(char **map, int *pos);
 
 // Extract.c
 int				count_lines(char *src);
@@ -111,6 +117,12 @@ int				keyboard_handle(int key, t_config *config);
 void			vars_init_helper(t_config *config);
 void			vars_init(t_config *config);
 int				ft_free_exit_cub(t_config *config);
+
+
+// map.c
+char			**get_map(char **scfile_text);
+int				check_map(char **map);
+
 
 // Distance.c
 double			*calculate_dist(t_config *config, double *ray);
@@ -130,5 +142,12 @@ void			draw_img(int x, t_config *config, double *dist, double *ray);
 // Drawing_aux.c
 void			ft_mlx_pixel_put(t_config *config, int x, int y, int color);
 int				get_i(t_config *config, double *ray);
+
+// free.c
+void			free_ptp(char	**ptp);
+void			free_textures(t_config *config);
+
+// error.c
+int				parsing_error(t_config *config, char *msg, int err_nbr);
 
 #endif

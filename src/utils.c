@@ -6,7 +6,11 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 16:22:15 by apereira          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2024/01/17 12:37:59 by apereira         ###   ########.fr       */
+=======
+/*   Updated: 2024/01/16 23:16:57 by ratavare         ###   ########.fr       */
+>>>>>>> parser
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +35,10 @@ void	vars_init_helper(t_config *config)
 // Initializes vars
 void	vars_init(t_config *config)
 {
+	config->so = NULL;
+	config->no = NULL;
+	config->ea = NULL;
+	config->we = NULL;
 	config->mlx = 0;
 	config->wdw = 0;
 	config->pos_x = 0;
