@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:18:27 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/17 15:07:26 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/17 20:26:59 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int	main(int ac, char **av)
 	(void)ac;
 	(void)av;
 	vars_init(&config);
-	parser("../42cursus_Cub3D/includes/maps/valid/normal.cub", &config);
+	parser("../cub3d/includes/maps/valid/normal.cub", &config);
 	// config.mlx = mlx_init();
 	// config.wdw = mlx_new_window(config.mlx, WDW_WIDTH, WDW_HEIGHT, "Cub3D");
 	// config.img.mlx_img = mlx_new_image(config.mlx, WDW_WIDTH, WDW_HEIGHT);
