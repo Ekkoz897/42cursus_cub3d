@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 15:26:42 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/17 20:27:52 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/18 14:09:59 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ int	parse_map(char **scfile_text, t_config *config)
 	config->map_height = i;
 	config->map_width = (ft_longest_line_size(config->map) - 1);
 	get_player_pos(config->map, temp_pos);
-	config->pos_x = temp_pos[1];
-	config->pos_y = temp_pos[0];
+	config->pos_x = temp_pos[0];
+	config->pos_y = temp_pos[1];
 	return (0);
 }
 

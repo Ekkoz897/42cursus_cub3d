@@ -1,9 +1,9 @@
-NO ./inc/textures/wall_1.xpm
-SO ./inc/textures/wall_2.xpm
-WE ./inc/textures/wall_3.xpm
-EA ./inc/textures/wall_4.xpm
+NO /home/ubuntu/Desktop/42cursus_Cub3D/includes/textures/wall_1.xpm
+SO /home/ubuntu/Desktop/42cursus_Cub3D/includes/textures/wall_2.xpm
+WE /home/ubuntu/Desktop/42cursus_Cub3D/includes/textures/wall_3.xpm
+EA /home/ubuntu/Desktop/42cursus_Cub3D/includes/textures/wall_4.xpm
 
-F 128, 0,128   
+F 128,120,128   
 C 200,255,255
 
 11111111111111111111111111111

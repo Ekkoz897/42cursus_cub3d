@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 16:22:15 by apereira          #+#    #+#             */
-/*   Updated: 2024/01/17 14:46:15 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/18 13:55:47 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	vars_init(t_config *config)
 	config->plane_y = 0;
 	config->distance = 0;
 	config->height = 0;
-	config->map = NULL;
+	config->map = 0;
 	config->hit = 0;
 	config->colors = malloc(sizeof(int) * 2);
 	config->step_x = 0;
@@ -54,11 +54,8 @@ void	vars_init(t_config *config)
 	config->side = -1;
 	config->start = 0;
 	config->end = 0;
-	config->textures = malloc (sizeof(char *) * 4);
-	config->textures[0] = ft_strdup("../includes/textures/wall_1.xpm");
-	config->textures[1] = ft_strdup("../includes/textures/wall_2.xpm");
-	config->textures[2] = ft_strdup("../includes/textures/wall_3.xpm");
-	config->textures[3] = ft_strdup("../includes/textures/wall_4.xpm");
+	config->textures = malloc(sizeof(char *) * 4);
+	vars_init_helper(config);
 }
 
 int	ft_free_exit_cub(t_config *config)
