@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 15:26:42 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/18 14:09:59 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/18 21:54:13 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	parse_colors(char **scfile_text, t_config *config)
 		return (1);
 	i = 0;
 	while (i <= 2)
-		if (config->f[i] > 255 || config->c[i++] > 255)
+		if (config->f[i] > 255 || config->c[i] > 255 || config->f[i++] < 0)
 			return (1);
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 00:01:42 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/17 14:18:10 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/18 20:46:20 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ void	free_ptp(char **ptp)
 
 void	free_textures(t_config *config)
 {
-	if (config->so)
-		free(config->so);
-	if (config->no)
-		free(config->no);
-	if (config->we)
-		free(config->we);
-	if (config->ea)
-		free(config->ea);
+	if (config->textures[0])
+		free(config->textures[0]);
+	if (config->textures[1])
+		free(config->textures[1]);
+	if (config->textures[2])
+		free(config->textures[2]);
+	if (config->textures[3])
+		free(config->textures[3]);
 }

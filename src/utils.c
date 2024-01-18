@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 16:22:15 by apereira          #+#    #+#             */
-/*   Updated: 2024/01/18 13:55:47 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/18 22:22:29 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,11 @@ void	vars_init_helper(t_config *config)
 // Initializes vars
 void	vars_init(t_config *config)
 {
-	config->so = NULL;
-	config->no = NULL;
-	config->ea = NULL;
-	config->we = NULL;
+	config->textures = malloc(sizeof(char *) * 4);
+	// config->textures[0] = NULL;
+	// config->textures[1] = NULL;
+	// config->textures[2] = NULL;
+	// config->textures[3] = NULL;
 	config->mlx = 0;
 	config->wdw = 0;
 	config->pos_x = 0;
@@ -54,7 +55,6 @@ void	vars_init(t_config *config)
 	config->side = -1;
 	config->start = 0;
 	config->end = 0;
-	config->textures = malloc(sizeof(char *) * 4);
 	vars_init_helper(config);
 }
 
@@ -72,12 +72,14 @@ int	ft_free_exit_cub(t_config *config)
 		mlx_destroy_display(config->mlx);
 	i = 0;
 	while (i != config->map_height)
-	{
-		free (config->map[i]);
-		i++;
-	}
+		free (config->map[i++]);
+	i = 0;
+	while (i <= 3)
+		free (config->textures[i++]);
 	free(config->map);
 	free(config->mlx);
 	free(config->textures);
+	free(config->colors);
+	free(config->map_coord);
 	exit(0);
 }

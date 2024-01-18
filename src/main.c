@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:18:27 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/18 14:34:20 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/18 22:14:18 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,6 @@ void	init_texture_imgs(t_config *config)
 	int	i;
 
 	i = 0;
-	config->textures[0] = config->so;
-	config->textures[1] = config->no;
-	config->textures[2] = config->ea;
-	config->textures[3] = config->we;
 	while (i < 4)
 	{
 		config->wall[i].img = mlx_xpm_file_to_image(config->mlx, \
@@ -96,7 +92,8 @@ int	main(int ac, char **av)
 	(void)ac;
 	(void)av;
 	vars_init(&config);
-	parser("includes/maps/valid/normal.cub", &config);
+	if (parser("includes/maps/valid/normal.cub", &config))
+		return (1);
 	init_texture_imgs(&config);
 	print_config(&config);
 	// return (0);
@@ -105,7 +102,7 @@ int	main(int ac, char **av)
 	config.img.mlx_img = mlx_new_image(config.mlx, WDW_WIDTH, WDW_HEIGHT);
 	config.img.addr = mlx_get_data_addr(config.img.mlx_img, &config.img.bpp,
 			&config.img.line_len, &config.img.endian);
-	mlx_loop_hook(config.mlx, ft_render, &config);
+	// mlx_loop_hook(config.mlx, ft_render, &config);
 	mlx_hook(config.wdw, 02, (1L << 0), keyboard_handle, &config);
 	mlx_hook(config.wdw, 17, 1L << 17, ft_free_exit_cub, &config);
 	mlx_loop(config.mlx);

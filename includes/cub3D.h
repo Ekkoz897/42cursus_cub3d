@@ -6,7 +6,7 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 12:28:33 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/17 20:31:27 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/18 21:38:26 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,39 +59,34 @@ typedef struct s_wall
 // map->coord integer rounded player coordinates
 typedef struct s_config
 {
-	void				*mlx;
-	void				*wdw;
-	double				pos_x;
-	double				pos_y;
-	double				dir_x;
-	double				dir_y;
-	double				plane_x;
-	double				plane_y;
-	double				distance;
-	double				height;
-	char				**map;
-	char				**textures;
+	void	*mlx;
+	void	*wdw;
+	double	pos_x;
+	double	pos_y;
+	double	dir_x;
+	double	dir_y;
+	double	plane_x;
+	double	plane_y;
+	double	distance;
+	double	height;
+	char	**map;
+	char	**textures;
 
-	char				*so;
-	char				*no;
-	char				*we;
-	char				*ea;
+	int		f[3];
+	int		c[3];
+	int		map_width;
+	int		map_height;
+	int		hit;
+	int		*colors;
+	int		step_x;
+	int		step_y;
+	int		*map_coord;
+	int		side;
+	int		start;
+	int		end;
 
-	unsigned int		f[3];
-	unsigned int		c[3];
-	int					map_width;
-	int					map_height;
-	int					hit;
-	int					*colors;
-	int					step_x;
-	int					step_y;
-	int					*map_coord;
-	int					side;
-	int					start;
-	int					end;
-
-	t_img				img;
-	t_wall				wall[4];
+	t_img	img;
+	t_wall	wall[4];
 }	t_config;
 
 // parser.c

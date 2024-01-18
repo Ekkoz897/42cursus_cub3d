@@ -6,7 +6,7 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 12:28:08 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/17 20:32:48 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/18 21:50:12 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,19 +125,21 @@ void	ft_add_textures(char *scfile_line, int *count, t_config *config, int id)
 	int	i;
 
 	i = 0;
-	while (scfile_line[i] != '.')
+	while (scfile_line[i] == 'N' || scfile_line[i] == 'A' ||\
+	scfile_line[i] == 'E' || scfile_line[i] == 'O' || scfile_line[i] == 'S' \
+	|| scfile_line[i] == 'W' || scfile_line[i] == 32)
 		i++;
 	if (id == 1)
-		config->so = ft_strndup(scfile_line + i, \
+		config->textures[0] = ft_strndup(scfile_line + i, \
 		ft_strlen(scfile_line + i) - 1);
 	if (id == 2)
-		config->no = ft_strndup(scfile_line + i, \
+		config->textures[1] = ft_strndup(scfile_line + i, \
 		ft_strlen(scfile_line + i) - 1);
 	if (id == 3)
-		config->we = ft_strndup(scfile_line + i, \
+		config->textures[3] = ft_strndup(scfile_line + i, \
 		ft_strlen(scfile_line + i) - 1);
 	if (id == 4)
-		config->ea = ft_strndup(scfile_line + i, \
+		config->textures[2] = ft_strndup(scfile_line + i, \
 		ft_strlen(scfile_line + i) - 1);
 	count[0]++;
 }
