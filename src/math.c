@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 08:51:49 by apereira          #+#    #+#             */
-/*   Updated: 2024/01/18 13:30:55 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/19 10:01:34 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ void	ft_calculations_helper(t_config *config, double *dist)
 	else
 	{
 		dist[3] += dist[1];
-		config->map_coord += config->step_y;
+		config->map_coord[1] += config->step_y;
 		config->side = 1;
 	}
-	if (config->map[config->map_coord[0]][config->map_coord[1]] == '1')
+	if ((config->map[config->map_coord[0]][config->map_coord[1]]) == '1')
 		config->hit = 1;
 }
 

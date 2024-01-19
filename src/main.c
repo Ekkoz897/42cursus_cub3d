@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:18:27 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/19 09:37:36 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/19 11:14:00 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	init_texture_imgs(t_config *config)
 	while (i < 4)
 	{
 		config->wall[i].img = mlx_xpm_file_to_image(config->mlx, \
-			config->textures[i], &config->wall->width, &config->wall->height);
+			config->textures[i], &config->wall[i].width, &config->wall[i].height);
 		if (!config->wall[i].img)
 			return ;
 		config->wall[i].addr = mlx_get_data_addr(config->wall[i].img, \
@@ -93,10 +93,13 @@ void print_config(const t_config *config) {
         }
     }
 
-    // Print colors
-	printf("Colors:\n");
-    printf("  Floor color: R: %u, G: %u, B: %u\n", config->f[0], config->f[1], config->f[2]);
-    printf("  Ceiling color: R: %u, G: %u, B: %u\n", config->c[0], config->c[1], config->c[2]);
+   // Print colors
+    if (config->colors != NULL) {
+        printf("Colors:\n");
+        for (int i = 0; i < 2; ++i) {
+            printf("  Color %d: %d\n", i, config->colors[i]);
+        }
+    }
 
 	printf("Walls:\n");
     for (int i = 0; i < 4; ++i) {
@@ -118,22 +121,23 @@ int	main(int ac, char **av)
 	(void)ac;
 	(void)av;
 	vars_init(&config);
-	if (parser("/home/ubuntu/Desktop/42cursus_Cub3D/includes/maps/valid/normal.cub", &config))
+	if (parser("..//42cursus_Cub3D/includes/maps/valid/normal_museum.cub", &config))
 		return (1);
-	// apagar quando j'a soubermos a letra do player
+	// apagar quando ja soubermos a letra do player e as cores em valor int
 	config.letter = 'W';
+	config.colors[0] = 8419456;
+	config.colors[1] = 13172735;
 	//
 	get_direction(&config);
 	print_config(&config);
-	return (0);
 	config.mlx = mlx_init();
 	config.wdw = mlx_new_window(config.mlx, WDW_WIDTH, WDW_HEIGHT, "Cub3D");
 	config.img.mlx_img = mlx_new_image(config.mlx, WDW_WIDTH, WDW_HEIGHT);
 	config.img.addr = mlx_get_data_addr(config.img.mlx_img, &config.img.bpp,
 			&config.img.line_len, &config.img.endian);
 	init_texture_imgs(&config);
-	// mlx_loop_hook(config.mlx, ft_render, &config);
-	// mlx_hook(config.wdw, 02, (1L << 0), keyboard_handle, &config);
-	// mlx_hook(config.wdw, 17, 1L << 17, ft_free_exit_cub, &config);
-	// mlx_loop(config.mlx);
+	mlx_loop_hook(config.mlx, ft_render, &config);
+	mlx_hook(config.wdw, 02, (1L << 0), keyboard_handle, &config);
+	mlx_hook(config.wdw, 17, 1L << 17, ft_free_exit_cub, &config);
+	mlx_loop(config.mlx);
 }

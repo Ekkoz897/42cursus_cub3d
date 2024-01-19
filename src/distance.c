@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 09:29:48 by apereira          #+#    #+#             */
-/*   Updated: 2024/01/17 12:45:37 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/19 09:59:51 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ double	*dist_2(t_config *config, double *ray, double *dist)
 	else
 	{
 		config->step_x = 0;
-		dist[2] = INFINITY;
+		dist[2] = INFINITE;
 	}
 	return (dist);
 }
@@ -68,10 +68,10 @@ double	*calculate_dist(t_config *config, double *ray)
 	dist = dist_2(config, ray, dist);
 	if (ray[1] < 0 && dist[1] > 0)
 	{
-		config->step_y = 1;
-		dist[3] = (config->map_coord[1] + 1 - config->pos_y) * dist[1];
+		config->step_y = -1;
+		dist[3] = (config->pos_y - config->map_coord[1]) * dist[1];
 	}
-	else if (ray[1] >= 0 && dist[1] > 0)
+	else if (dist[1] > 0)
 	{
 		config->step_y = 1;
 		dist[3] = (config->map_coord[1] + 1 - config->pos_y) * dist[1];
@@ -79,7 +79,7 @@ double	*calculate_dist(t_config *config, double *ray)
 	else
 	{
 		config->step_y = 0;
-		dist[3] = INFINITY;
+		dist[3] = INFINITE;
 	}
 	return (dist);
 }

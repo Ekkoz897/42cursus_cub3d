@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 11:56:21 by apereira          #+#    #+#             */
-/*   Updated: 2024/01/17 12:47:39 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/19 10:06:07 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ unsigned int	get_pixel_texture(t_config *config, int y, double *ray)
 	coord_x = coord_x - floor(coord_x);
 	coord_x = coord_x * config->wall[i].width;
 	coord_y = ((y - config->start) * config->wall[i].height) \
-		/ ((config->end - config->start));
+		/	((config->end - config->start));
 	color = (config->wall[i].addr + ((int)coord_y \
 				* config->wall[i].line_len
 				+ (int)coord_x * (config->wall[i].bpp / 8)));

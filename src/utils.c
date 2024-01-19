@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 16:22:15 by apereira          #+#    #+#             */
-/*   Updated: 2024/01/19 09:29:54 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/19 10:11:45 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,27 +31,21 @@ void	vars_init_helper(t_config *config)
 // Initializes vars
 void	vars_init(t_config *config)
 {
-	config->textures = malloc(sizeof(char *) * 4);
-	config->letter = 0;
 	config->mlx = 0;
 	config->wdw = 0;
-	config->pos_x = 0;
-	config->pos_y = 0;
-	config->dir_x = 0;
-	config->dir_y = 0;
-	config->plane_x = 0;
-	config->plane_y = 0;
 	config->distance = 0;
 	config->height = 0;
-	config->map = 0;
-	config->hit = 0;
-	config->colors = malloc(sizeof(int) * 2);
-	config->step_x = 0;
-	config->step_y = 0;
-	config->map_coord = malloc(sizeof(int) * 2);
-	config->side = -1;
 	config->start = 0;
 	config->end = 0;
+	config->hit = 0;
+	config->step_x = 0;
+	config->step_y = 0;
+	config->side = -1;
+	config->letter = 0;
+	config->map = 0;
+	config->map_coord = malloc(sizeof(int) * 2);
+	config->textures = malloc(sizeof(char *) * 4);
+	config->colors = malloc(sizeof(int) * 2);
 	vars_init_helper(config);
 }
 
@@ -60,7 +54,7 @@ int	ft_free_exit_cub(t_config *config)
 	int	i;
 
 	if (!config)
-		exit (0);
+		exit(0);
 	if (config->img.mlx_img)
 		mlx_destroy_image(config->mlx, config->img.mlx_img);
 	if (config->wdw && config->mlx)
@@ -70,13 +64,10 @@ int	ft_free_exit_cub(t_config *config)
 	i = 0;
 	while (i != config->map_height)
 		free (config->map[i++]);
-	i = 0;
-	while (i <= 3)
-		free (config->textures[i++]);
 	free(config->map);
 	free(config->mlx);
-	free(config->textures);
 	free(config->colors);
 	free(config->map_coord);
+	free(config->textures);
 	exit(0);
 }
