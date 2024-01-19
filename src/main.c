@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:18:27 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/18 22:14:18 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/19 09:37:36 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,37 @@ int	ft_render(t_config *config)
 	mlx_put_image_to_window(config->mlx, config->wdw, config->img.mlx_img, \
 		0, 0);
 	return (1);
+}
+
+void	direction_aux(t_config *config, int sig)
+{
+	config->dir_x = 0;
+	config->dir_y = sig;
+	config->plane_x = 0.66 * sig;
+	config->plane_y = 0;
+}
+
+// Sets the initial direction of the player is looking towards
+void	get_direction(t_config *config)
+{
+	if (config->letter == 'E')
+		direction_aux(config, 1);
+	else if (config->letter == 'W')
+		direction_aux(config, -1);
+	else if (config->letter == 'S')
+	{
+		config->dir_x = 1;
+		config->dir_y = 0;
+		config->plane_x = 0;
+		config->plane_y = -0.66;
+	}
+	else if (config->letter == 'N')
+	{
+		config->dir_x = -1;
+		config->dir_y = 0;
+		config->plane_x = 0;
+		config->plane_y = 0.66;
+	}
 }
 
 // gets the xpm file path to all textures and creates a drawable img
@@ -51,6 +82,8 @@ void print_config(const t_config *config) {
     printf("plane_x: %f, plane_y: %f\n", config->plane_x, config->plane_y);
     printf("distance: %f, height: %f\n", config->distance, config->height);
     printf("map_width: %d, map_height: %d\n", config->map_width, config->map_height);
+    printf("start: %d, end: %d\n", config->start, config->end);
+    printf("hit: %d, step_x: %d, step_y: %d, side: %d\n", config->hit, config->step_x, config->step_y, config->side);
 
     // Print textures
     if (config->textures != NULL) {
@@ -65,20 +98,13 @@ void print_config(const t_config *config) {
     printf("  Floor color: R: %u, G: %u, B: %u\n", config->f[0], config->f[1], config->f[2]);
     printf("  Ceiling color: R: %u, G: %u, B: %u\n", config->c[0], config->c[1], config->c[2]);
 
-    // Print other configurations
-    printf("hit: %d, step_x: %d, step_y: %d, side: %d\n", config->hit, config->step_x, config->step_y, config->side);
-    printf("start: %d, end: %d\n", config->start, config->end);
-
-    // Print image details
-    printf("Image: bpp: %d, line_len: %d, endian: %d\n", config->img.bpp, config->img.line_len, config->img.endian);
-
-    // Print walls
 	printf("Walls:\n");
     for (int i = 0; i < 4; ++i) {
         printf("  Wall %d: bpp: %d, line_len: %d, endian: %d, width: %d, height: %d\n", 
                i, config->wall[i].bpp, config->wall[i].line_len, config->wall[i].endian, 
                config->wall[i].width, config->wall[i].height);
     }
+    printf("Image: bpp: %d, line_len: %d, endian: %d\n", config->img.bpp, config->img.line_len, config->img.endian);
 }
 
 // config.img.bpp: bits per pixel
@@ -92,18 +118,22 @@ int	main(int ac, char **av)
 	(void)ac;
 	(void)av;
 	vars_init(&config);
-	if (parser("includes/maps/valid/normal.cub", &config))
+	if (parser("/home/ubuntu/Desktop/42cursus_Cub3D/includes/maps/valid/normal.cub", &config))
 		return (1);
-	init_texture_imgs(&config);
+	// apagar quando j'a soubermos a letra do player
+	config.letter = 'W';
+	//
+	get_direction(&config);
 	print_config(&config);
-	// return (0);
+	return (0);
 	config.mlx = mlx_init();
 	config.wdw = mlx_new_window(config.mlx, WDW_WIDTH, WDW_HEIGHT, "Cub3D");
 	config.img.mlx_img = mlx_new_image(config.mlx, WDW_WIDTH, WDW_HEIGHT);
 	config.img.addr = mlx_get_data_addr(config.img.mlx_img, &config.img.bpp,
 			&config.img.line_len, &config.img.endian);
+	init_texture_imgs(&config);
 	// mlx_loop_hook(config.mlx, ft_render, &config);
-	mlx_hook(config.wdw, 02, (1L << 0), keyboard_handle, &config);
-	mlx_hook(config.wdw, 17, 1L << 17, ft_free_exit_cub, &config);
-	mlx_loop(config.mlx);
+	// mlx_hook(config.wdw, 02, (1L << 0), keyboard_handle, &config);
+	// mlx_hook(config.wdw, 17, 1L << 17, ft_free_exit_cub, &config);
+	// mlx_loop(config.mlx);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 16:22:15 by apereira          #+#    #+#             */
-/*   Updated: 2024/01/18 22:22:29 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/19 09:29:54 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,7 @@ void	vars_init_helper(t_config *config)
 void	vars_init(t_config *config)
 {
 	config->textures = malloc(sizeof(char *) * 4);
-	// config->textures[0] = NULL;
-	// config->textures[1] = NULL;
-	// config->textures[2] = NULL;
-	// config->textures[3] = NULL;
+	config->letter = 0;
 	config->mlx = 0;
 	config->wdw = 0;
 	config->pos_x = 0;
