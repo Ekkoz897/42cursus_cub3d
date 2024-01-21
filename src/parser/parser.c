@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 15:26:42 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/21 18:02:24 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/21 18:08:27 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	parse_map(char **scfile_text, t_config *config)
 	config->map_height = i;
 	config->map_width = (ft_longest_line_size(config->map) - 1);
 	get_player_pos(config->map, temp_pos);
+	config->letter = config->map[temp_pos[0]][temp_pos[1]];
 	config->pos_x = temp_pos[0] + 0.5;
 	config->pos_y = temp_pos[1] + 0.5;
 	return (0);
@@ -66,8 +67,6 @@ int	parse_colors(char **scfile_text, t_config *config)
 	while (i <= 2)
 		if (config->f[i] > 255 || config->c[i] > 255 || config->f[i++] < 0)
 			return (1);
-	config->colors[0] = ft_rgbtoi(config->f[0], config->f[1], config->f[2]);
-	config->colors[1] = ft_rgbtoi(config->c[0], config->c[1], config->c[2]);
 	config->colors[0] = ft_rgbtoi(config->f[0], config->f[1], config->f[2]);
 	config->colors[1] = ft_rgbtoi(config->c[0], config->c[1], config->c[2]);
 	return (0);

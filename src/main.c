@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:18:27 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/21 18:00:52 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/21 18:07:29 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ void print_config(const t_config *config) {
     printf("map_width: %d, map_height: %d\n", config->map_width, config->map_height);
     printf("start: %d, end: %d\n", config->start, config->end);
     printf("hit: %d, step_x: %d, step_y: %d, side: %d\n", config->hit, config->step_x, config->step_y, config->side);
+	printf("Player letter: %c\n", config->letter);
 
     // Print textures
     if (config->textures != NULL) {
