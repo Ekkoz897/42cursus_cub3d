@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:18:27 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/21 15:41:20 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/21 18:00:52 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ void print_config(const t_config *config) {
     printf("map_width: %d, map_height: %d\n", config->map_width, config->map_height);
     printf("start: %d, end: %d\n", config->start, config->end);
     printf("hit: %d, step_x: %d, step_y: %d, side: %d\n", config->hit, config->step_x, config->step_y, config->side);
-	printf("Player letter: %c\n", config->letter);
 
     // Print textures
     if (config->textures != NULL) {
@@ -94,6 +93,7 @@ void print_config(const t_config *config) {
         }
     }
 
+	// Print colors
 	// Print colors
     if (config->colors != NULL) {
         printf("Colors:\n");
@@ -122,7 +122,7 @@ int	main(int ac, char **av)
 	(void)ac;
 	(void)av;
 	vars_init(&config);
-	if (parser("../cub3D/includes/maps/valid/normal_museum.cub", &config))
+	if (parser("../42cursus_Cub3D/includes/maps/valid/normal_museum.cub", &config))
 		return (1);
 	// apagar quando ja soubermos a letra do player e as cores em valor int
 	config.letter = 'W';
@@ -130,7 +130,7 @@ int	main(int ac, char **av)
 	config.colors[1] = 13172735;
 	//
 	get_direction(&config);
-	// print_config(&config);
+	print_config(&config);
 	config.mlx = mlx_init();
 	config.wdw = mlx_new_window(config.mlx, WDW_WIDTH, WDW_HEIGHT, "Cub3D");
 	config.img.mlx_img = mlx_new_image(config.mlx, WDW_WIDTH, WDW_HEIGHT);

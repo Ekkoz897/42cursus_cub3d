@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 16:22:15 by apereira          #+#    #+#             */
-/*   Updated: 2024/01/21 16:03:57 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/21 18:02:55 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ int	ft_free_exit_cub(t_config *config)
 	i = 0;
 	while (i != config->map_height)
 		free (config->map[i++]);
-	free_textures(config);
 	free(config->map);
 	free(config->mlx);
 	free(config->colors);

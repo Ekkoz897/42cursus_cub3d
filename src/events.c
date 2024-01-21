@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 08:44:57 by apereira          #+#    #+#             */
-/*   Updated: 2024/01/21 15:42:04 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/21 17:59:42 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 int	keyboard_handle(int key, t_config *config)
 {
 	static double	x_step;
+	// double			dist;
 
 	if (key == ESC)
 		ft_free_exit_cub(config);
