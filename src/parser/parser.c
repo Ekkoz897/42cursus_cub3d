@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 15:26:42 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/21 15:25:23 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/21 15:42:40 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int	parse_map(char **scfile_text, t_config *config)
 	config->map_height = i;
 	config->map_width = (ft_longest_line_size(config->map) - 1);
 	get_player_pos(config->map, temp_pos);
-	config->letter = config->map[temp_pos[0]][temp_pos[1]];
 	config->pos_x = temp_pos[0] + 0.5;
 	config->pos_y = temp_pos[1] + 0.5;
 	return (0);
