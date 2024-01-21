@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: apereira <apereira@student.42.fr>          +#+  +:+       +#+         #
+#    By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/10 15:49:55 by apereira          #+#    #+#              #
-#    Updated: 2024/01/17 14:13:23 by apereira         ###   ########.fr        #
+#    Updated: 2024/01/21 13:42:00 by ratavare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ OBJ_GNL = $(SRC_GNL:.c=.o)
 all: $(NAME)
 
 %.o: %.c
-	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(addprefix src/,$(OBJ))  $(OBJ_GNL)
 	@make -s -C libft/ft_printf

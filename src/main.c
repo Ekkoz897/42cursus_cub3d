@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:18:27 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/21 15:34:02 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/21 17:54:10 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void print_config(const t_config *config) {
         }
     }
 
-   // Print colors
+	// Print colors
     if (config->colors != NULL) {
         printf("Colors:\n");
         for (int i = 0; i < 2; ++i) {
@@ -122,7 +122,7 @@ int	main(int ac, char **av)
 	(void)ac;
 	(void)av;
 	vars_init(&config);
-	if (parser("..//42cursus_Cub3D/includes/maps/valid/normal_museum.cub", &config))
+	if (parser("../42cursus_Cub3D/includes/maps/valid/normal_museum.cub", &config))
 		return (1);
 	get_direction(&config);
 	print_config(&config);
