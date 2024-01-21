@@ -6,7 +6,7 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 12:28:08 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/18 21:50:12 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/21 15:47:47 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,6 @@ void	ft_add_colors(char *scfile_line, int *count, t_config *config, int id)
 	int	i;
 	int	j;
 
-	(void)id;
 	i = 0;
 	while (!ft_isdigit(scfile_line[i]) && scfile_line[i] != '-')
 		i++;

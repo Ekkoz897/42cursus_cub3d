@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   drawing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 11:56:21 by apereira          #+#    #+#             */
-/*   Updated: 2024/01/19 10:06:07 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/21 16:15:07 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ unsigned int	get_pixel_texture(t_config *config, int y, double *ray)
 	color = (config->wall[i].addr + ((int)coord_y \
 				* config->wall[i].line_len
 				+ (int)coord_x * (config->wall[i].bpp / 8)));
-	return (*(unsigned int *)color);
+	// return (*(unsigned int *)color);
+	return (0);
 }
 
 // Loops over each pixel and checks if it will be a ceiling, wall or floor.

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:18:27 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/19 11:14:00 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/21 18:15:37 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void print_config(const t_config *config) {
         }
     }
 
-   // Print colors
+	// Print colors
     if (config->colors != NULL) {
         printf("Colors:\n");
         for (int i = 0; i < 2; ++i) {
@@ -121,15 +121,10 @@ int	main(int ac, char **av)
 	(void)ac;
 	(void)av;
 	vars_init(&config);
-	if (parser("..//42cursus_Cub3D/includes/maps/valid/normal_museum.cub", &config))
+	if (parser("../cub3D/includes/maps/valid/normal_museum.cub", &config))
 		return (1);
-	// apagar quando ja soubermos a letra do player e as cores em valor int
-	config.letter = 'W';
-	config.colors[0] = 8419456;
-	config.colors[1] = 13172735;
-	//
 	get_direction(&config);
-	print_config(&config);
+	// print_config(&config);
 	config.mlx = mlx_init();
 	config.wdw = mlx_new_window(config.mlx, WDW_WIDTH, WDW_HEIGHT, "Cub3D");
 	config.img.mlx_img = mlx_new_image(config.mlx, WDW_WIDTH, WDW_HEIGHT);
