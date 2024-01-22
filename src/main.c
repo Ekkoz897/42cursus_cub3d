@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:18:27 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/22 12:27:20 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/22 20:49:50 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,8 @@ int	main(int ac, char **av)
 {
 	t_config	config;
 
-	(void)ac;
-	(void)av;
+	if (ac != 2)
+		return (parsing_error(&config, "Invalid argument number\n", 0));
 	vars_init(&config);
 	if (parser(av[1], &config))
 		return (1);
@@ -96,7 +96,9 @@ int	main(int ac, char **av)
 			&config.img.line_len, &config.img.endian);
 	init_texture_imgs(&config);
 	mlx_loop_hook(config.mlx, ft_render, &config);
+	mlx_mouse_move(config.mlx, config.wdw, WDW_WIDTH / 2, WDW_HEIGHT / 2);
 	mlx_hook(config.wdw, 02, (1L << 0), keyboard_handle, &config);
+	mlx_hook(config.wdw, 06, (1L << 6), mouse_handle, &config);
 	mlx_hook(config.wdw, 17, 1L << 17, ft_free_exit_cub, &config);
 	mlx_loop(config.mlx);
 }

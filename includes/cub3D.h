@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 12:28:33 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/22 12:20:48 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/22 20:48:56 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,14 @@ typedef struct s_wall
 	int		height;
 }	t_wall;
 
+typedef struct s_mouse
+{
+	int		px;
+	int		py;
+	int		x;
+	int		y;
+}	t_mouse;
+
 // pos_x & pos_y = exact player coordinates
 // map->coord integer rounded player coordinates
 typedef struct s_config
@@ -89,6 +97,7 @@ typedef struct s_config
 	int		end;
 
 	t_img	img;
+	t_mouse	*mouse;
 	t_wall	wall[4];
 }	t_config;
 
@@ -109,6 +118,7 @@ int				count_lines(char *src);
 char			**extract(char *src);
 
 // Events.c
+int				mouse_handle(int x, int y, t_config *config);
 int				keyboard_handle(int key, t_config *config);
 void			look_left(t_config *config);
 void			look_right(t_config *config);

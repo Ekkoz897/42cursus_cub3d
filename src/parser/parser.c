@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 15:26:42 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/21 18:08:27 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/22 18:44:26 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ int	parser(char *src, t_config *config)
 
 	scfile_text = extract(src);
 	if (!scfile_text)
-		return (printf("error1\n"), 1);
+		return (parsing_error(config, "Invalid scene file path.\n", 1));
 	if (parse_textures(scfile_text, config))
 		return (free_ptp(scfile_text), \
 		parsing_error(config, "Invalid texture indentifiers.\n", 2));

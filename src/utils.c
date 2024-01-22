@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 16:22:15 by apereira          #+#    #+#             */
-/*   Updated: 2024/01/22 12:20:36 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/22 20:36:40 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@ void	vars_init_helper(t_config *config)
 // Initializes vars
 void	vars_init(t_config *config)
 {
+	t_mouse	mouse;
+
+	config->mouse = &mouse;
 	config->mlx = 0;
 	config->wdw = 0;
 	config->distance = 0;
@@ -43,6 +46,8 @@ void	vars_init(t_config *config)
 	config->side = -1;
 	config->letter = 0;
 	config->map = 0;
+	config->mouse->x = 0;
+	config->mouse->px = 0;
 	config->map_coord = malloc(sizeof(int) * 2);
 	config->textures = malloc(sizeof(char *) * 4);
 	config->colors = malloc(sizeof(int) * 2);

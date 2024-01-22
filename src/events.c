@@ -3,14 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 08:44:57 by apereira          #+#    #+#             */
-/*   Updated: 2024/01/22 12:26:06 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/22 20:48:39 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
+
+
+int	mouse_handle(int x, int y, t_config *config)
+{
+	(void)y;
+	config->mouse->px = config->mouse->x;
+	config->mouse->x = x;
+	if (x > config->mouse->px)
+		look_right(config);
+	if (x < config->mouse->px)
+		look_left(config);
+	// mlx_mouse_move(config->mlx, config->wdw, WDW_WIDTH / 2, WDW_HEIGHT / 2);
+	return (0);
+}
 
 // Receives the signal for each relevant pressed key and handles it
 int	keyboard_handle(int key, t_config *config)
