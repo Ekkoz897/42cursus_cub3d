@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 12:28:33 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/22 16:34:03 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/22 11:48:52 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,8 @@ char			**extract(char *src);
 
 // Events.c
 int				keyboard_handle(int key, t_config *config);
+void			move_left(t_config *config);
+void			move_right(t_config *config);
 
 // Utils.c
 void			vars_init_helper(t_config *config);
@@ -146,5 +148,11 @@ void			free_textures(t_config *config);
 
 // error.c
 int				parsing_error(t_config *config, char *msg, int err_nbr);
+
+// Moves.c
+void			move_w(t_config *config);
+void			move_s(t_config *config);
+void			move_a(t_config *config);
+void			move_d(t_config *config);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:18:27 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/22 14:53:43 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/22 11:16:29 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ int	main(int ac, char **av)
 	(void)ac;
 	(void)av;
 	vars_init(&config);
-	if (parser("/home/ratavare/42/cub3d/includes/maps/valid/normal_museum.cub", &config))
+	if (parser("/home/ubuntu/Desktop/42cursus_Cub3D/includes/maps/valid/a_normal_museum.cub", &config))
 		return (1);
 	get_direction(&config);
 	print_config(&config);
