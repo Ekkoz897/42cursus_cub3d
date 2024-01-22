@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 08:44:57 by apereira          #+#    #+#             */
-/*   Updated: 2024/01/22 11:48:38 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/22 11:54:56 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ int	keyboard_handle(int key, t_config *config)
 	else if (key == KEY_D)
 		move_d(config);
 	else if (key == KEY_LEFT)
-	move_left(config);
+		look_left(config);
 	else if (key == KEY_RIGHT)
-		move_right(config);
+		look_right(config);
 	return (0);
 }
 
-void	move_left(t_config *config)
+void	look_left(t_config *config)
 {
 	double			old_x;
 
@@ -44,7 +44,7 @@ void	move_left(t_config *config)
 	config->plane_y = config->plane_y * cos(PI / 100) + old_x * sin(PI / 100);
 }
 
-void	move_right(t_config *config)
+void	look_right(t_config *config)
 {
 	double			old_x;
 

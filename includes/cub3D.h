@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 12:28:33 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/22 11:48:52 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/22 11:55:12 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,8 +109,8 @@ char			**extract(char *src);
 
 // Events.c
 int				keyboard_handle(int key, t_config *config);
-void			move_left(t_config *config);
-void			move_right(t_config *config);
+void			look_left(t_config *config);
+void			look_right(t_config *config);
 
 // Utils.c
 void			vars_init_helper(t_config *config);
