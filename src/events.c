@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 08:44:57 by apereira          #+#    #+#             */
-/*   Updated: 2024/01/21 18:10:05 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/22 15:38:33 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,24 @@ int	keyboard_handle(int key, t_config *config)
 		ft_free_exit_cub(config);
 	else if (key == KEY_W)
 	{
-		config->pos_y -= 0.05;
-		config->pos_x += x_step;
+		config->pos_y = config->pos_y + 0.1 * config->dir_y;
+		config->pos_x = config->pos_x + 0.1 * config->dir_x;
 	}
 	else if (key == KEY_S)
-		config->pos_y += 0.05;
+	{
+		config->pos_y = config->pos_y - 0.1 * config->dir_y;
+		config->pos_x = config->pos_x - 0.1 * config->dir_x;
+	}
 	else if (key == KEY_D)
-		config->pos_x -= 0.05;
+	{
+		config->pos_y = config->pos_y - 0.1 * config->dir_x;
+		config->pos_x = config->pos_x + 0.1 * config->dir_y;
+	}
 	else if (key == KEY_A)
-		config->pos_x += 0.05;
+	{
+		config->pos_y = config->pos_y + 0.1 * config->dir_x;
+		config->pos_x = config->pos_x - 0.1 * config->dir_y;
+	}
 	else if (key == KEY_LEFT)
 	{
 		x_step += 0.005;
@@ -62,6 +71,8 @@ int	keyboard_handle(int key, t_config *config)
 	// 	dist = hypot(config->dir_x, config->dir_y);
 	// 	config->dir_x /= dist;
 	// 	config->dir_y /= dist;
+	// 	// config->plane_x = config->plane_x * cos(1 * 0.066) - config->plane_y * sin(1 * 0.066);
+	// 	// config->plane_y = config->plane_y * cos(1 * 0.066) + config->plane_x * sin(1 * 0.066);
 	// }
 	return (0);
 }

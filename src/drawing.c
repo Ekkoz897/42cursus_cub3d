@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   drawing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 11:56:21 by apereira          #+#    #+#             */
-/*   Updated: 2024/01/21 17:59:33 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/22 14:57:46 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ unsigned int	get_pixel_texture(t_config *config, int y, double *ray)
 	float	coord_y;
 	int		i;
 
+	(void)y;
 	i = get_i(config, ray);
 	if (config->side == 0)
 		coord_x = config->pos_y + config->distance * ray[1];
@@ -44,12 +45,11 @@ unsigned int	get_pixel_texture(t_config *config, int y, double *ray)
 	coord_x = coord_x - floor(coord_x);
 	coord_x = coord_x * config->wall[i].width;
 	coord_y = ((y - config->start) * config->wall[i].height) \
-		/	((config->end - config->start));
+	/ ((config->end - config->start));
 	color = (config->wall[i].addr + ((int)coord_y \
 				* config->wall[i].line_len
 				+ (int)coord_x * (config->wall[i].bpp / 8)));
 	return (*(unsigned int *)color);
-	return (0);
 }
 
 // Loops over each pixel and checks if it will be a ceiling, wall or floor.

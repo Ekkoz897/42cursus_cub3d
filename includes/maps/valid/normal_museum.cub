@@ -1,9 +1,9 @@
-NO /home/ubuntu/Desktop/42cursus_Cub3D/includes/textures/wall_5.xpm
-SO /home/ubuntu/Desktop/42cursus_Cub3D/includes/textures/wall_6.xpm
-WE /home/ubuntu/Desktop/42cursus_Cub3D/includes/textures/wall_7.xpm
-EA /home/ubuntu/Desktop/42cursus_Cub3D/includes/textures/wall_8.xpm
+NO /home/ratavare/42/cub3d/includes/textures/wall_5.xpm
+SO /home/ratavare/42/cub3d/includes/textures/wall_6.xpm
+WE /home/ratavare/42/cub3d/includes/textures/wall_7.xpm
+EA /home/ratavare/42/cub3d/includes/textures/wall_8.xpm
 
-F 200,200,200 
+F 150,150,150 
 C 200,255,255
 
 11111111111111111111111111111
