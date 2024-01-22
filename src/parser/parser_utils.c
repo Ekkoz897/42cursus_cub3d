@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 12:28:08 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/21 18:01:52 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/22 12:27:46 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	get_player_pos(char **map, int *pos)
 		y = -1;
 		while (map[x][++y])
 		{
-			if (map[x][y] == 'W' || map[x][y] == 'E' 
+			if (map[x][y] == 'W' || map[x][y] == 'E'
 			|| map[x][y] == 'S' || map[x][y] == 'N')
 			{
 				count++;
@@ -124,7 +124,7 @@ void	ft_add_textures(char *scfile_line, int *count, t_config *config, int id)
 	int	i;
 
 	i = 0;
-	while (scfile_line[i] == 'N' || scfile_line[i] == 'A' ||\
+	while (scfile_line[i] == 'N' || scfile_line[i] == 'A' || \
 	scfile_line[i] == 'E' || scfile_line[i] == 'O' || scfile_line[i] == 'S' \
 	|| scfile_line[i] == 'W' || scfile_line[i] == 32)
 		i++;

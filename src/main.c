@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:18:27 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/22 12:23:54 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/22 12:27:20 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,8 @@ void	init_texture_imgs(t_config *config)
 	while (i < 4)
 	{
 		config->wall[i].img = mlx_xpm_file_to_image(config->mlx, \
-			config->textures[i], &config->wall[i].width, &config->wall[i].height);
+			config->textures[i], &config->wall[i].width, \
+				&config->wall[i].height);
 		if (!config->wall[i].img)
 			return ;
 		config->wall[i].addr = mlx_get_data_addr(config->wall[i].img, \
@@ -85,7 +86,7 @@ int	main(int ac, char **av)
 	(void)ac;
 	(void)av;
 	vars_init(&config);
-	if (parser("/home/ubuntu/Desktop/42cursus_Cub3D/includes/maps/valid/a_normal_museum.cub", &config))
+	if (parser(av[1], &config))
 		return (1);
 	get_direction(&config);
 	config.mlx = mlx_init();

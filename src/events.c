@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 08:44:57 by apereira          #+#    #+#             */
-/*   Updated: 2024/01/22 11:54:56 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/22 12:26:06 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,12 @@ void	look_left(t_config *config)
 	double			old_x;
 
 	old_x = config->dir_x;
-	config->dir_x = config->dir_x * cos(PI / 100) - config->dir_y * sin(PI / 100);
+	config->dir_x = config->dir_x * cos(PI / 100) - config->dir_y * \
+		sin(PI / 100);
 	config->dir_y = config->dir_y * cos(PI / 100) + old_x * sin(PI / 100);
 	old_x = config->plane_x;
-	config->plane_x = config->plane_x * cos(PI / 100) - config->plane_y * sin(PI / 100);
+	config->plane_x = config->plane_x * cos(PI / 100) - config->plane_y \
+		* sin(PI / 100);
 	config->plane_y = config->plane_y * cos(PI / 100) + old_x * sin(PI / 100);
 }
 
@@ -49,9 +51,11 @@ void	look_right(t_config *config)
 	double			old_x;
 
 	old_x = config->dir_x;
-	config->dir_x = config->dir_x * cos(-PI / 100) - config->dir_y * sin(-PI / 100);
+	config->dir_x = config->dir_x * cos(-PI / 100) - config->dir_y * \
+		sin(-PI / 100);
 	config->dir_y = config->dir_y * cos(-PI / 100) + old_x * sin(-PI / 100);
 	old_x = config->plane_x;
-	config->plane_x = config->plane_x * cos(-PI / 100) - config->plane_y * sin(-PI / 100);
+	config->plane_x = config->plane_x * cos(-PI / 100) - config->plane_y * \
+		sin(-PI / 100);
 	config->plane_y = config->plane_y * cos(-PI / 100) + old_x * sin(-PI / 100);
 }
