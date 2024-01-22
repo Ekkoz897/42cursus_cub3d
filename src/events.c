@@ -6,7 +6,7 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 08:44:57 by apereira          #+#    #+#             */
-/*   Updated: 2024/01/22 16:11:27 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/22 16:28:40 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,64 +15,47 @@
 // Receives the signal for each relevant pressed key and handles it
 int	keyboard_handle(int key, t_config *config)
 {
-	double			dist;
-	double			old_plane;
+	double			old_x;
 
 	if (key == ESC)
 		ft_free_exit_cub(config);
 	else if (key == KEY_W)
 	{
-		config->pos_y = config->pos_y + 0.1 * config->dir_y;
 		config->pos_x = config->pos_x + 0.1 * config->dir_x;
+		config->pos_y = config->pos_y + 0.1 * config->dir_y;
 	}
 	else if (key == KEY_S)
 	{
-		config->pos_y = config->pos_y - 0.1 * config->dir_y;
 		config->pos_x = config->pos_x - 0.1 * config->dir_x;
+		config->pos_y = config->pos_y - 0.1 * config->dir_y;
 	}
 	else if (key == KEY_D)
 	{
-		config->pos_y = config->pos_y - 0.1 * config->dir_x;
 		config->pos_x = config->pos_x + 0.1 * config->dir_y;
+		config->pos_y = config->pos_y - 0.1 * config->dir_x;
 	}
 	else if (key == KEY_A)
 	{
-		config->pos_y = config->pos_y + 0.1 * config->dir_x;
 		config->pos_x = config->pos_x - 0.1 * config->dir_y;
+		config->pos_y = config->pos_y + 0.1 * config->dir_x;
 	}
-	// else if (key == KEY_LEFT)
-	// {
-	// 	config->dir_x = config->dir_x + 0.1;
-	// 	config->dir_y = config->dir_y + 0.1;
-	// 	config->plane_x = config->plane_x + 0.066;
-	// 	config->plane_y = config->plane_y - 0.066;
-	// }
-	// else if (key == KEY_RIGHT)
-	// {
-	// 	config->dir_x = config->dir_x - 0.1;
-	// 	config->dir_y = config->dir_y - 0.1;
-	// 	config->plane_x = config->plane_x - 0.066;
-	// 	config->plane_y = config->plane_y + 0.066;
-	// }
 	else if (key == KEY_LEFT)
 	{
-		old_plane = config->dir_x;
-		config->dir_x = config->dir_x * cos(1 * 0.066) - config->dir_y * sin(1 * 0.066);
-		config->dir_y = config->dir_y * cos(1 * 0.066) + old_plane * sin(1 * 0.066);
-		dist = hypot(config->dir_x, config->dir_y);
-		config->dir_x /= dist;
-		config->dir_y /= dist;
-		old_plane = config->plane_x;
-		config->plane_x = config->plane_x * cos(1 * 0.066) - config->plane_y * sin(1 * 0.066);
-		config->plane_y = config->plane_y * cos(1 * 0.066) + old_plane * sin(1 * 0.066);
+		old_x = config->dir_x;
+		config->dir_x = config->dir_x * cos(PI / 100) - config->dir_y * sin(PI / 100);
+		config->dir_y = config->dir_y * cos(PI / 100) + old_x * sin(PI / 100);
+		old_x = config->plane_x;
+		config->plane_x = config->plane_x * cos(PI / 100) - config->plane_y * sin(PI / 100);
+		config->plane_y = config->plane_y * cos(PI / 100) + old_x * sin(PI / 100);
 	}
 	else if (key == KEY_RIGHT)
 	{
-		// config->dir_x = config->dir_x * cos(-1 * 0.05) - config->dir_y * sin(-1 * 0.05);
-		// config->dir_y = config->dir_y * cos(-1 * 0.05) + config->dir_x * sin(-1 * 0.05);
-		// dist = hypot(config->dir_x, config->dir_y);
-		// config->dir_x /= dist;
-		// config->dir_y /= dist;
+		old_x = config->dir_x;
+		config->dir_x = config->dir_x * cos(-PI / 100) - config->dir_y * sin(-PI / 100);
+		config->dir_y = config->dir_y * cos(-PI / 100) + old_x * sin(-PI / 100);
+		old_x = config->plane_x;
+		config->plane_x = config->plane_x * cos(-PI / 100) - config->plane_y * sin(-PI / 100);
+		config->plane_y = config->plane_y * cos(-PI / 100) + old_x * sin(-PI / 100);
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 12:28:33 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/22 15:39:09 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/22 16:34:03 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@
 # include <X11/X.h>
 # include "math.h"
 
-# define WDW_WIDTH 1920
-# define WDW_HEIGHT 1080
+# define WDW_WIDTH 800
+# define WDW_HEIGHT 600
 # define ESC 65307
 # define KEY_LEFT 65361
 # define KEY_RIGHT 65363
@@ -34,6 +34,7 @@
 # define KEY_A 97
 # define KEY_D 100
 # define INFINITE 1000000
+# define PI 3.14159265359
 
 typedef struct s_img
 {
