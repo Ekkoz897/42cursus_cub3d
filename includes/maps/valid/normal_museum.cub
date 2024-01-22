@@ -4,7 +4,7 @@ WE /home/ratavare/42/cub3d/includes/textures/wall_7.xpm
 EA /home/ratavare/42/cub3d/includes/textures/wall_8.xpm
 
 F 150,150,150 
-C 200,255,255
+C 10,15,25
 
 11111111111111111111111111111
 10000000000000000000000001001
