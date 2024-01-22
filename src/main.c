@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:18:27 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/22 11:16:29 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/22 12:23:54 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,44 +74,6 @@ void	init_texture_imgs(t_config *config)
 	}
 }
 
-
-void print_config(const t_config *config) {
-    // Print main configuration
-    printf("pos_x: %f, pos_y: %f\n", config->pos_x, config->pos_y);
-    printf("dir_x: %f, dir_y: %f\n", config->dir_x, config->dir_y);
-    printf("plane_x: %f, plane_y: %f\n", config->plane_x, config->plane_y);
-    printf("distance: %f, height: %f\n", config->distance, config->height);
-    printf("map_width: %d, map_height: %d\n", config->map_width, config->map_height);
-    printf("start: %d, end: %d\n", config->start, config->end);
-    printf("hit: %d, step_x: %d, step_y: %d, side: %d\n", config->hit, config->step_x, config->step_y, config->side);
-	printf("Player letter: %c\n", config->letter);
-
-    // Print textures
-    if (config->textures != NULL) {
-        printf("Textures:\n");
-        for (int i = 0; config->textures[i] != NULL; ++i) {
-            printf("  %s\n", config->textures[i]);
-        }
-    }
-
-	// Print colors
-	// Print colors
-    if (config->colors != NULL) {
-        printf("Colors:\n");
-        for (int i = 0; i < 2; ++i) {
-            printf("  Color %d: %d\n", i, config->colors[i]);
-        }
-    }
-
-	printf("Walls:\n");
-    for (int i = 0; i < 4; ++i) {
-        printf("  Wall %d: bpp: %d, line_len: %d, endian: %d, width: %d, height: %d\n", 
-               i, config->wall[i].bpp, config->wall[i].line_len, config->wall[i].endian, 
-               config->wall[i].width, config->wall[i].height);
-    }
-    printf("Image: bpp: %d, line_len: %d, endian: %d\n", config->img.bpp, config->img.line_len, config->img.endian);
-}
-
 // config.img.bpp: bits per pixel
 // config.img.line_len: size (in bytes) of a single line of the image.
 // config.img.endian: the order of bytes, there's 2 types of system, big endian
@@ -126,7 +88,6 @@ int	main(int ac, char **av)
 	if (parser("/home/ubuntu/Desktop/42cursus_Cub3D/includes/maps/valid/a_normal_museum.cub", &config))
 		return (1);
 	get_direction(&config);
-	print_config(&config);
 	config.mlx = mlx_init();
 	config.wdw = mlx_new_window(config.mlx, WDW_WIDTH, WDW_HEIGHT, "Cub3D");
 	config.img.mlx_img = mlx_new_image(config.mlx, WDW_WIDTH, WDW_HEIGHT);

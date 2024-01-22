@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 12:28:33 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/22 11:55:12 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/22 12:20:48 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@
 # define KEY_D 100
 # define INFINITE 1000000
 # define PI 3.14159265359
+# define W_CHECK 0.1
 
 typedef struct s_img
 {
@@ -116,6 +117,7 @@ void			look_right(t_config *config);
 void			vars_init_helper(t_config *config);
 void			vars_init(t_config *config);
 int				ft_free_exit_cub(t_config *config);
+int				ft_isspace(int c);
 
 
 // map.c
