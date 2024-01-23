@@ -6,7 +6,7 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 16:22:15 by apereira          #+#    #+#             */
-/*   Updated: 2024/01/22 20:36:40 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/22 23:41:04 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,6 @@ void	vars_init_helper(t_config *config)
 // Initializes vars
 void	vars_init(t_config *config)
 {
-	t_mouse	mouse;
-
-	config->mouse = &mouse;
 	config->mlx = 0;
 	config->wdw = 0;
 	config->distance = 0;
@@ -46,11 +43,9 @@ void	vars_init(t_config *config)
 	config->side = -1;
 	config->letter = 0;
 	config->map = 0;
-	config->mouse->x = 0;
-	config->mouse->px = 0;
-	config->map_coord = malloc(sizeof(int) * 2);
-	config->textures = malloc(sizeof(char *) * 4);
-	config->colors = malloc(sizeof(int) * 2);
+	config->map_coord = ft_calloc(sizeof(int), 2);
+	config->textures = ft_calloc(sizeof(char *), 5);
+	config->colors = ft_calloc(sizeof(int), 2);
 	vars_init_helper(config);
 }
 
@@ -62,6 +57,9 @@ int	ft_free_exit_cub(t_config *config)
 		exit(0);
 	if (config->img.mlx_img)
 		mlx_destroy_image(config->mlx, config->img.mlx_img);
+	i = 0;
+	while (i < 4)
+		mlx_destroy_image(config->mlx, config->wall[i++].img);
 	if (config->wdw && config->mlx)
 		mlx_destroy_window(config->mlx, config->wdw);
 	if (config->mlx)

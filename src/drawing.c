@@ -6,7 +6,7 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 11:56:21 by apereira          #+#    #+#             */
-/*   Updated: 2024/01/22 14:57:46 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/22 23:48:28 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ unsigned int	get_pixel_texture(t_config *config, int y, double *ray)
 	color = (config->wall[i].addr + ((int)coord_y \
 				* config->wall[i].line_len
 				+ (int)coord_x * (config->wall[i].bpp / 8)));
+	if (!color)
+		return (write(2, "xpm invalido bro cmon\n", 22), exit(1), 1);
 	return (*(unsigned int *)color);
 }
 

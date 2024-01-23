@@ -6,21 +6,23 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 08:44:57 by apereira          #+#    #+#             */
-/*   Updated: 2024/01/22 20:48:39 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/22 23:21:55 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
 
-
 int	mouse_handle(int x, int y, t_config *config)
 {
+	static int	curr_x;
+	static int	prev_x;
+
 	(void)y;
-	config->mouse->px = config->mouse->x;
-	config->mouse->x = x;
-	if (x > config->mouse->px)
+	prev_x = curr_x;
+	curr_x = x;
+	if (x > prev_x)
 		look_right(config);
-	if (x < config->mouse->px)
+	if (x < prev_x)
 		look_left(config);
 	// mlx_mouse_move(config->mlx, config->wdw, WDW_WIDTH / 2, WDW_HEIGHT / 2);
 	return (0);

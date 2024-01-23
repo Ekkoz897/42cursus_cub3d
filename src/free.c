@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 00:01:42 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/21 17:55:25 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/23 00:09:03 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,14 @@ void	free_ptp(char **ptp)
 	while (ptp[i])
 		free(ptp[i++]);
 	free(ptp);
+}
+
+void	free_textures(t_config *config)
+{
+	int	i;
+
+	i = 0;
+	while (i < 4)
+		free(config->textures[i++]);
+	free(config->textures);
 }
