@@ -6,7 +6,7 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 12:28:33 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/30 14:05:25 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/30 14:51:18 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@
 # include <X11/X.h>
 # include "math.h"
 
-# define WDW_WIDTH 800
-# define WDW_HEIGHT 600
+# define WDW_WIDTH 1400
+# define WDW_HEIGHT 1000
 # define ESC 65307
 # define KEY_LEFT 65361
 # define KEY_RIGHT 65363
@@ -151,6 +151,7 @@ void			free_textures(t_config *config);
 
 // error.c
 int				parsing_error(t_config *config, char *msg, int err_nbr);
+int 			xpm_error(t_config *config);
 
 // moves.c
 void			move_w(t_config *config);

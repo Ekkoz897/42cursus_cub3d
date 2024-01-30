@@ -6,7 +6,7 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:18:27 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/30 13:56:30 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/30 14:43:38 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	init_texture_imgs(t_config *config)
 			config->textures[i], &config->wall[i].width, \
 				&config->wall[i].height);
 		if (!config->wall[i].img)
-			return ;
+			xpm_error(config);
 		config->wall[i].addr = mlx_get_data_addr(config->wall[i].img, \
 			&config->wall[i].bpp, &config->wall[i].line_len, \
 			&config->wall[i].endian);

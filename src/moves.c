@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   moves.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 11:42:04 by apereira          #+#    #+#             */
-/*   Updated: 2024/01/22 12:23:26 by apereira         ###   ########.fr       */
+/*   Updated: 2024/01/30 16:14:45 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,28 @@
 // de detetar collision.
 int	check_xy(t_config *config, double x, double y)
 {
-	if (config->map[(int)x][(int)y] == '\0'
-		|| ft_isspace(config->map[(int)x][(int)y]))
+	// printf("config->x: %d\nconfig->y: %d\n", (int)config->pos_x, (int)config->pos_y);
+	// printf("x: %d\ny: %d\n", (int)(x + 0.1), (int)(y + 0.1));
+	// printf("config->map: %c\n", config->map[(int)(x + 0.2)][(int)(y + 0.2)]);
+	// if (config->map[(int)(x)][(int)(y)] == '\n'
+	// 	|| ft_isspace(config->map[(int)x][(int)y])
+	// 	|| config->map[(int)(x)][(int)(y)] == '\0')
+	// 	return (0);
+	if (config->map[(int)(x - 0.1)][(int)(y - 0.1)] == '1'
+		|| config->map[(int)(x + 0.1)][(int)(y - 0.1)] == '1'
+		|| config->map[(int)(x - 0.1)][(int)(y + 0.1)] == '1'
+		|| config->map[(int)(x + 0.1)][(int)(y + 0.1)] == '1')
 		return (0);
-	if ((config->pos_x > x && config->pos_y > y
-			&& config->map[(int)(x - 0.1)][(int)(y - 0.1)] != '1')
-		|| (config->pos_x < x && config->pos_y < y
-		&& config->map[(int)(x + 0.1)][(int)(y + 0.1)] != '1')
-		|| (config->pos_x > x && config->map[(int)(x - 0.1)][(int)y] != '1')
-		|| (config->pos_x < x && config->map[(int)(x + 0.1)][(int)y] != '1')
-		|| (config->pos_y > y && config->map[(int)(x)][(int)(y - 0.1)] != '1')
-		|| (config->pos_y < y && config->map[(int)(x)][(int)(y + 0.1)] != '1'))
-		return (1);
-	return (0);
+	// if ((config->pos_x > x && config->pos_y > y
+	// 		&& config->map[(int)(x - 0.1)][(int)(y - 0.1)] != '1')
+	// 	|| (config->pos_x < x && config->pos_y < y
+	// 	&& config->map[(int)(x + 0.1)][(int)(y + 0.1)] != '1')
+	// 	|| (config->pos_x > x && config->map[(int)(x - 0.1)][(int)y] != '1')
+	// 	|| (config->pos_x < x && config->map[(int)(x + 0.1)][(int)y] != '1')
+	// 	|| (config->pos_y > y && config->map[(int)(x)][(int)(y - 0.1)] != '1')
+	// 	|| (config->pos_y < y && config->map[(int)(x)][(int)(y + 0.1)] != '1'))
+	// 	return (1);
+	return (1);
 }
 
 void	move_w(t_config *config)

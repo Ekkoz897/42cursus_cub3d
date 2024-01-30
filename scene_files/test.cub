@@ -1,10 +1,9 @@
-NO ./path_to_the_north_texture
-SO ./path_to_the_south_texture
-WE ./path_to_the_west_texture
-EA ./path_to_the_east_texture
-
-F 0,7,1
-C 0,0,3
+NO /home/ratavare/42/cub3d/includes/textures/wall_5.xpm
+SO /home/ratavare/42/cub3d/includes/textures/wall_6.xpm
+WE /home/ratavare/42/cub3d/includes/textures/wall_7.xpm
+EA /home/ratavare/42/cub3d/includes/textures/wall_8.xpm
+F 150,150,150
+C 10,15,25
 
 
         1111111111111111111111111
@@ -20,4 +19,4 @@ C 0,0,3
 10000000000000001101010010001
 11000001110101011111011110N0111
 11110111 1110101 101111010001
-11111111 1111111 111111111111
+11111111 1111111 111111111110

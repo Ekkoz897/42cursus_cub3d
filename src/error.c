@@ -6,7 +6,7 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 22:24:56 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/23 00:40:13 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/30 14:45:38 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,17 @@ int	parsing_error(t_config *config, char *msg, int err_nbr)
 	ft_putstr_fd("Error\n", 2);
 	ft_putstr_fd(msg, 2);
 	return (1);
+}
+
+int xpm_error(t_config *config)
+{
+	parsing_error(config, "Invalid texture path.", 4);
+	if (config->img.mlx_img)
+		mlx_destroy_image(config->mlx, config->img.mlx_img);
+	if (config->wdw && config->mlx)
+		mlx_destroy_window(config->mlx, config->wdw);
+	if (config->mlx)
+		mlx_destroy_display(config->mlx);
+	free(config->mlx);
+	exit(1);
 }
