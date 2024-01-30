@@ -6,7 +6,7 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:18:27 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/24 14:48:15 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/30 13:56:30 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	ft_render(t_config *config)
 {
 	mlx_clear_window(config->mlx, config->wdw);
 	ft_calculations(config);
+	ft_minimap(config);
 	mlx_put_image_to_window(config->mlx, config->wdw, config->img.mlx_img, \
 		0, 0);
 	return (1);

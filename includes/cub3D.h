@@ -6,7 +6,7 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 12:28:33 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/23 00:08:31 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/01/30 14:05:25 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,17 +104,17 @@ void			ft_add_colors(char *scfile_line, int *count, \
 					t_config *config, int id);
 void			get_player_pos(char **map, int *pos);
 
-// Extract.c
+// extract.c
 int				count_lines(char *src);
 char			**extract(char *src);
 
-// Events.c
+// events.c
 int				mouse_handle(int x, int y, t_config *config);
 int				keyboard_handle(int key, t_config *config);
 void			look_left(t_config *config);
 void			look_right(t_config *config);
 
-// Utils.c
+// utils.c
 void			vars_init_helper(t_config *config);
 void			vars_init(t_config *config);
 int				ft_free_exit_cub(t_config *config);
@@ -126,22 +126,22 @@ char			**get_map(char **scfile_text);
 int				check_map(char **map);
 
 
-// Distance.c
+// distance.c
 double			*calculate_dist(t_config *config, double *ray);
 double			*dist_1(double *ray);
 double			*dist_2(t_config *config, double *ray, double *dist);
 
-// Math.c
+// math.c
 double			*calculate_ray(t_config *config, double x);
 void			ft_calculations_helper(t_config *config, double *dist);
 void			ft_calculations(t_config *config);
 
-// Drawing.c
+// drawing.c
 void			get_image_vars(t_config *config, int side, double *dist);
 unsigned int	get_pixel_texture(t_config *config, int y, double *ray);
 void			draw_img(int x, t_config *config, double *dist, double *ray);
 
-// Drawing_aux.c
+// drawing_aux.c
 void			ft_mlx_pixel_put(t_config *config, int x, int y, int color);
 int				get_i(t_config *config, double *ray);
 
@@ -152,10 +152,13 @@ void			free_textures(t_config *config);
 // error.c
 int				parsing_error(t_config *config, char *msg, int err_nbr);
 
-// Moves.c
+// moves.c
 void			move_w(t_config *config);
 void			move_s(t_config *config);
 void			move_a(t_config *config);
 void			move_d(t_config *config);
+
+// minimap.c
+void			ft_minimap(t_config *config);
 
 #endif
