@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   drawing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 11:56:21 by apereira          #+#    #+#             */
-/*   Updated: 2024/01/30 14:43:01 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/02/13 13:04:00 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,6 @@ unsigned int	get_pixel_texture(t_config *config, int y, double *ray)
 	color = (config->wall[i].addr + ((int)coord_y \
 				* config->wall[i].line_len
 				+ (int)coord_x * (config->wall[i].bpp / 8)));
-	// if (!color)
-	// 	return (xpm_error(config));
 	return (*(unsigned int *)color);
 }
 

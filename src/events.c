@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 08:44:57 by apereira          #+#    #+#             */
-/*   Updated: 2024/02/13 14:06:31 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/02/13 13:03:07 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,16 @@
 
 int	mouse_handle(int x, int y, t_config *config)
 {
-	// static int	curr_x;
-	// static int	prev_x;
+	static int	curr_x;
+	static int	prev_x;
 
 	(void)y;
-	// prev_x = curr_x;
-	// curr_x = x;
-	// if (x > prev_x)
-	// 	look_right(config);
-	// if (x < prev_x)
-	// 	look_left(config);
-	if (x > WDW_WIDTH / 2)
+	prev_x = curr_x;
+	curr_x = x;
+	if (x > prev_x)
 		look_right(config);
-	if (x < WDW_WIDTH / 2)
+	if (x < prev_x)
 		look_left(config);
-	mlx_mouse_move(config->mlx, config->wdw, WDW_WIDTH / 2, WDW_HEIGHT / 2);
 	return (0);
 }
 

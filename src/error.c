@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 22:24:56 by ratavare          #+#    #+#             */
-/*   Updated: 2024/02/13 14:35:20 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/02/13 12:54:57 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,11 @@ int	parsing_error(t_config *config, char *msg, int err_nbr)
 	return (1);
 }
 
-int xpm_error(t_config *config)
+int	xpm_error(t_config *config)
 {
-	int i;
-
-	i = 0;
 	parsing_error(config, "Invalid texture path.\n", 4);
 	if (config->img.mlx_img)
 		mlx_destroy_image(config->mlx, config->img.mlx_img);
-	while (config->wall[i].img)
-		if (config->wall[i].img)
-			mlx_destroy_image(config->mlx, config->wall[i++].img);
 	if (config->wdw && config->mlx)
 		mlx_destroy_window(config->mlx, config->wdw);
 	if (config->mlx)

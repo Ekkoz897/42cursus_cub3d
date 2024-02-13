@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minimap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 11:56:13 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/30 15:04:38 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/02/13 13:03:47 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ void	ft_print_player(t_config *config)
 		x = -1;
 		while (x < 2)
 		{
-			ft_mlx_pixel_put(config, config->pos_y * 8 + 5 + x,config->pos_x * 8 + 5 + y, 0xFF0000);
+			ft_mlx_pixel_put(config, config->pos_y * 8 + 5 + x, \
+				config->pos_x * 8 + 5 + y, 0xFF0000);
 			x++;
 		}
 		y++;
@@ -32,9 +33,9 @@ void	ft_print_player(t_config *config)
 
 void	ft_minimap(t_config *config)
 {
-	int x;
-	int y;
-	int color;
+	int	x;
+	int	y;
+	int	color;
 
 	y = -1;
 	while (++y < config->map_height * 8)
