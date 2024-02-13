@@ -6,7 +6,7 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 23:18:28 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/16 23:14:23 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/02/13 14:48:27 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ char	**get_map(char **scfile_text)
 	while (scfile_text[i - 1][0] == '\n')
 		i--;
 	end = i;
-	while (scfile_text[i - 1][0] != '\n')
+	while (scfile_text[i - 1][0] != '\n' && i - 1 != 0)
 		i--;
 	map = ft_calloc(sizeof(char *), (end - i + 1));
 	if (!map)

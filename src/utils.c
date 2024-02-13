@@ -6,7 +6,7 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 16:22:15 by apereira          #+#    #+#             */
-/*   Updated: 2024/01/22 23:41:04 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/02/13 14:30:35 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	ft_free_exit_cub(t_config *config)
 	free(config->mlx);
 	free(config->colors);
 	free(config->map_coord);
-	free(config->textures);
+	free_textures(config);
 	exit(0);
 }
 

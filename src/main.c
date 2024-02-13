@@ -6,7 +6,7 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:18:27 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/30 14:43:38 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/02/13 14:31:04 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ void	init_texture_imgs(t_config *config)
 		config->wall[i].addr = mlx_get_data_addr(config->wall[i].img, \
 			&config->wall[i].bpp, &config->wall[i].line_len, \
 			&config->wall[i].endian);
-		free(config->textures[i]);
 		i++;
 	}
 }
@@ -97,7 +96,6 @@ int	main(int ac, char **av)
 			&config.img.line_len, &config.img.endian);
 	init_texture_imgs(&config);
 	mlx_loop_hook(config.mlx, ft_render, &config);
-	// mlx_mouse_move(config->mlx, config->wdw, WDW_WIDTH / 2, WDW_HEIGHT / 2);
 	mlx_hook(config.wdw, 02, (1L << 0), keyboard_handle, &config);
 	mlx_hook(config.wdw, 06, (1L << 6), mouse_handle, &config);
 	mlx_hook(config.wdw, 17, 1L << 17, ft_free_exit_cub, &config);

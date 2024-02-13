@@ -6,7 +6,7 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 12:28:33 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/30 14:51:18 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/02/13 14:54:35 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,3 +163,8 @@ void			move_d(t_config *config);
 void			ft_minimap(t_config *config);
 
 #endif
+
+/* texture_tests: 3, 4
+   color_tests: 2, 3, 4, 5, 8, 9. 10, 11
+   map_tests: 9, 15
+*/
