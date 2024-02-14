@@ -6,7 +6,7 @@
 #    By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/10 15:49:55 by apereira          #+#    #+#              #
-#    Updated: 2024/01/26 12:03:06 by ratavare         ###   ########.fr        #
+#    Updated: 2024/02/14 16:26:24 by ratavare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ RM = rm -rf
 PRINTF = libft/ft_printf/libftprintf.a
 MLX_PATH = ./includes/mlx_linux/libmlx_Linux.a
 
-SRC = main.c parser/parser.c parser/map.c parser/parser_utils.c parser/extract.c free.c error.c utils.c events.c math.c distance.c drawing.c drawing_aux.c moves.c minimap.c
+SRC = main.c parser/parser.c parser/map.c parser/parser_utils.c parser/parser_utils2.c parser/extract.c free.c error.c utils.c events.c math.c distance.c drawing.c drawing_aux.c moves.c minimap.c
 
 SRC_GNL = libft/GNL/get_next_line.c libft/GNL/get_next_line_utils.c
 

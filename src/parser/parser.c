@@ -6,7 +6,7 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 15:26:42 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/22 18:44:26 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/02/14 16:05:14 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ int	parse_map(char **scfile_text, t_config *config)
 	return (0);
 }
 
-// Converts the RGB value of the pixel colors to an integer value
+// Converts the RGB value of the pixel colors to an integer value.
+
 int	ft_rgbtoi(int r, int g, int b)
 {
 	return ((r * 65536) + (g * 256) + b);
@@ -56,9 +57,11 @@ int	parse_colors(char **scfile_text, t_config *config)
 	while (scfile_text[i])
 	{
 		if (!ft_contains_str(scfile_text[i], "F"))
-			ft_add_colors(scfile_text[i], &count, config, 1);
+			if (!check_commas(scfile_text[i]))
+				ft_add_colors(scfile_text[i], &count, config, 1);
 		if (!ft_contains_str(scfile_text[i], "C"))
-			ft_add_colors(scfile_text[i], &count, config, 2);
+			if (!check_commas(scfile_text[i]))
+				ft_add_colors(scfile_text[i], &count, config, 2);
 		i++;
 	}
 	if (count != 2)

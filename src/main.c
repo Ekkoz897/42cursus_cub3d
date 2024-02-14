@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:18:27 by ratavare          #+#    #+#             */
-/*   Updated: 2024/02/13 13:03:18 by apereira         ###   ########.fr       */
+/*   Updated: 2024/02/14 15:47:22 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ void	init_texture_imgs(t_config *config)
 		config->wall[i].addr = mlx_get_data_addr(config->wall[i].img, \
 			&config->wall[i].bpp, &config->wall[i].line_len, \
 			&config->wall[i].endian);
-		free(config->textures[i]);
 		i++;
 	}
 }

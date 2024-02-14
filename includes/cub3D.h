@@ -6,7 +6,7 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 12:28:33 by ratavare          #+#    #+#             */
-/*   Updated: 2024/01/30 14:51:18 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/02/14 16:06:54 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,9 @@ void			ft_add_colors(char *scfile_line, int *count, \
 					t_config *config, int id);
 void			get_player_pos(char **map, int *pos);
 
+// parser_utils2.c
+int 			check_commas(char *scfile_line);
+
 // extract.c
 int				count_lines(char *src);
 char			**extract(char *src);
@@ -163,3 +166,9 @@ void			move_d(t_config *config);
 void			ft_minimap(t_config *config);
 
 #endif
+
+/*
+textures: 3, 4
+colors: 2, 4, 5, 9, 10
+
+*/
