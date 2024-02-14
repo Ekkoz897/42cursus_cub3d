@@ -6,11 +6,13 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 16:05:26 by ratavare          #+#    #+#             */
-/*   Updated: 2024/02/14 16:42:01 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/02/14 17:14:49 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
+
+// Checks for different parts.
 
 int	check_fdp(char *scfile_line)
 {
@@ -19,7 +21,19 @@ int	check_fdp(char *scfile_line)
 	i = 0;
 	while (ft_isspace(scfile_line[i]))
 		i++;
-	
+	if (ft_isalpha(scfile_line[i]))
+		i++;
+	while (ft_isspace(scfile_line[i]))
+		i++;
+	while (scfile_line[i])
+	{
+		if (!ft_isdigit(scfile_line[i]) && \
+		scfile_line[i] != ',' && scfile_line[i] != 32 && \
+		scfile_line[i] != '\n')
+			return (1);
+		i++;
+	}
+	return (0);
 }
 
 int	check_color_count(char *scfile_line)
@@ -28,17 +42,17 @@ int	check_color_count(char *scfile_line)
 	static int	count;
 	int			len;
 
-	len = ft_strlen(scfile_line);	
-	while (!ft_isdigit(scfile_line[i]) && i < len)
+	len = ft_strlen(scfile_line);
+	while (i < len && !ft_isdigit(scfile_line[i]))
 		i++;
-	if (ft_isdigit(scfile_line[i]))
+	if (i < len && ft_isdigit(scfile_line[i]))
 	{
 		if (ft_isspace(scfile_line[i -1]) || count != 0)
 			count++;
 		while (ft_isdigit(scfile_line[i]) && i < len)
 			i++;
 	}
-	if (scfile_line[i])
+	if (i < len && scfile_line[i])
 		check_color_count(scfile_line);
 	if (count != 3)
 		return (1);
@@ -59,6 +73,8 @@ int	check_commas(char *scfile_line)
 	if (count != 2)
 		return (1);
 	if (check_color_count(scfile_line))
+		return (1);
+	if (check_fdp(scfile_line))
 		return (1);
 	return (0);
 }
