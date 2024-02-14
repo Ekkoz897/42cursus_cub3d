@@ -6,7 +6,7 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 12:28:08 by ratavare          #+#    #+#             */
-/*   Updated: 2024/02/14 16:09:35 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/02/14 18:08:11 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,6 @@ int	ft_contains_str(char *scfile_line, char *contained)
 		else
 			return (1);
 	}
-	if (scfile_line[i] != 32)
-		return (1);
 	return (0);
 }
 
@@ -124,10 +122,13 @@ void	ft_add_textures(char *scfile_line, int *count, t_config *config, int id)
 	int	i;
 
 	i = 0;
-	while (scfile_line[i] == 'N' || scfile_line[i] == 'A' || \
-	scfile_line[i] == 'E' || scfile_line[i] == 'O' || scfile_line[i] == 'S' \
-	|| scfile_line[i] == 'W' || scfile_line[i] == 32)
+	while (scfile_line[i] == 32)
 		i++;
+	while (ft_isalpha(scfile_line[i]) || scfile_line[i] == 32)
+		if (scfile_line[i++] == 32)
+			break ;
+	if (scfile_line[i - 1] != 32)
+		count[0]++;
 	if (id == 1)
 		config->textures[0] = ft_strndup(scfile_line + i, \
 		ft_strlen(scfile_line + i) - 1);
