@@ -6,7 +6,7 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 12:28:33 by ratavare          #+#    #+#             */
-/*   Updated: 2024/02/14 16:06:54 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/02/16 16:26:29 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ void			ft_add_colors(char *scfile_line, int *count, \
 void			get_player_pos(char **map, int *pos);
 
 // parser_utils2.c
-int 			check_commas(char *scfile_line);
+int				check_commas(char *scfile_line);
 
 // extract.c
 int				count_lines(char *src);
@@ -123,11 +123,9 @@ void			vars_init(t_config *config);
 int				ft_free_exit_cub(t_config *config);
 int				ft_isspace(int c);
 
-
 // map.c
 char			**get_map(char **scfile_text);
 int				check_map(char **map);
-
 
 // distance.c
 double			*calculate_dist(t_config *config, double *ray);
@@ -154,7 +152,7 @@ void			free_textures(t_config *config);
 
 // error.c
 int				parsing_error(t_config *config, char *msg, int err_nbr);
-int 			xpm_error(t_config *config);
+int				xpm_error(t_config *config);
 
 // moves.c
 void			move_w(t_config *config);
@@ -166,9 +164,3 @@ void			move_d(t_config *config);
 void			ft_minimap(t_config *config);
 
 #endif
-
-/*
-textures: 3, 4
-colors: 2, 4, 5, 9, 10
-
-*/

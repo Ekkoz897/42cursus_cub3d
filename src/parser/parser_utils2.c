@@ -6,7 +6,7 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 16:05:26 by ratavare          #+#    #+#             */
-/*   Updated: 2024/02/14 17:14:49 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/02/16 17:01:14 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,26 +38,25 @@ int	check_fdp(char *scfile_line)
 
 int	check_color_count(char *scfile_line)
 {
-	static int	i;
-	static int	count;
-	int			len;
+	int	i;
+	int	count;
 
-	len = ft_strlen(scfile_line);
-	while (i < len && !ft_isdigit(scfile_line[i]))
-		i++;
-	if (i < len && ft_isdigit(scfile_line[i]))
+	i = 0;
+	count = 0;
+	while (scfile_line[i])
 	{
-		if (ft_isspace(scfile_line[i -1]) || count != 0)
-			count++;
-		while (ft_isdigit(scfile_line[i]) && i < len)
+		if (!ft_isdigit(scfile_line[i]))
 			i++;
+		else
+		{
+			count++;
+			while (ft_isdigit(scfile_line[i]))
+				i++;
+		}
 	}
-	if (i < len && scfile_line[i])
-		check_color_count(scfile_line);
 	if (count != 3)
 		return (1);
-	else
-		return (0);
+	return (0);
 }
 
 int	check_commas(char *scfile_line)
@@ -72,6 +71,8 @@ int	check_commas(char *scfile_line)
 			count++;
 	if (count != 2)
 		return (1);
+	i = 0;
+	count = 0;
 	if (check_color_count(scfile_line))
 		return (1);
 	if (check_fdp(scfile_line))

@@ -1,7 +1,8 @@
-NO ./inc/textures/wall_1.xpm
-SO ./inc/textures/wall_2.xpm         
-WE ./inc/textures/wall_3.xpm
-EA ./inc/textures/wall_4.xpm 
+NO assets/textures/wall_5.xpm
+SO assets/textures/wall_6.xpm
+WE assets/textures/wall_7.xpm
+EA assets/textures/wall_8.xpm
+
 
 F 255,255,255
 C 016,-28,128   
