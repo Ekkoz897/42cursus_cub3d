@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 11:56:13 by ratavare          #+#    #+#             */
-/*   Updated: 2024/02/13 13:03:47 by apereira         ###   ########.fr       */
+/*   Updated: 2024/02/19 19:00:54 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	ft_minimap(t_config *config)
 	while (++y < config->map_height * 8)
 	{
 		x = -1;
-		while (++x < config->map_width * 8)
+		while (++x < (int)ft_strlen(config->map[y / 8]) * 8)
 		{
 			if (config->map[y / 8][x / 8] == '1')
 				color = 0xFFFFFF;

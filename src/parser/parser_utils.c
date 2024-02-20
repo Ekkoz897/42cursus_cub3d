@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 12:28:08 by ratavare          #+#    #+#             */
-/*   Updated: 2024/02/14 18:08:11 by ratavare         ###   ########.fr       */
+/*   Updated: 2024/02/19 18:56:57 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,8 @@ void	ft_add_textures(char *scfile_line, int *count, t_config *config, int id)
 			break ;
 	if (scfile_line[i - 1] != 32)
 		count[0]++;
+	while (ft_isspace(scfile_line[i]))
+		i++;
 	if (id == 1)
 		config->textures[0] = ft_strndup(scfile_line + i, \
 		ft_strlen(scfile_line + i) - 1);
